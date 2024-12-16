@@ -18,8 +18,11 @@ public class Main {
         else if (a == 'C') {
             System.out.print("Usually");
         }
-        else {
+        else if (a == 'D') {
             System.out.print("Effort");
+        }
+        else {
+            System.out.print("Failure");
         }
     }
 }
