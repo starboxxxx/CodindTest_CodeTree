@@ -14,7 +14,7 @@ public class Main {
             else if (n>=97 && n<=122) {
                 System.out.print((char)n);
             }
-            else if (n>=49 && n<=57) {
+            else if (n>=48 && n<=57) {
                 System.out.print((char)n);
             }
         }
