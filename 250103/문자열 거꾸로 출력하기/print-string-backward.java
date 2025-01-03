@@ -14,10 +14,9 @@ public class Main {
             }
 
             else {
-                for (int i = word.length()-1; i>=0; i--) {
-                    System.out.print(word.charAt(i));
-                }
-                System.out.println();
+                StringBuffer sb = new StringBuffer(word);
+                String result = sb.reverse().toString();
+                System.out.println(result);
             }
         }
     }
