@@ -15,7 +15,11 @@ public class Main {
 
         while (true) {
 
-            if (A.substring(i, i+len).equals(B)) {
+            if (A.length()<B.length()) {
+                break;
+            }
+
+            else if (A.substring(i, i+len).equals(B)) {
                 A = A.substring(0,i) + A.substring(i+len, A.length());
                 i = 0;
                 len = B.length();
