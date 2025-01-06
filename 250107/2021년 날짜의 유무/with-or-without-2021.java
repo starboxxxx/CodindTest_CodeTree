@@ -28,13 +28,16 @@ public class Main {
                     return "No";
                 }
             }
-            else {
+            else if (M == 4 || M == 6 || M == 9 || M == 11) {
                 if (D >= 1 && D <= 30) {
                     return "Yes";
                 }
                 else {
                     return "No";
                 }
+            }
+            else {
+                return "No";
             }
         }
     }
