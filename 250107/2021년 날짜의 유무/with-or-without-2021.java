@@ -11,7 +11,7 @@ public class Main {
     }
 
     public static String exist(int M, int D) {
-        if (M >= 1 && m <= 12) {
+        if (M >= 1 && M <= 12) {
             if (M == 2) {
                 if (D >=1 && D<=28) {
                     return "Yes";
