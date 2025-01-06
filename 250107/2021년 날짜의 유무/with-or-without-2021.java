@@ -28,7 +28,7 @@ public class Main {
                     return "No";
                 }
             }
-            else if (M == 4 || M == 6 || M == 9 || M == 11) {
+            else {
                 if (D >= 1 && D <= 30) {
                     return "Yes";
                 }
@@ -36,9 +36,9 @@ public class Main {
                     return "No";
                 }
             }
-            else {
-                return "No";
-            }
+        }
+        else {
+            return "No";
         }
     }
 }
