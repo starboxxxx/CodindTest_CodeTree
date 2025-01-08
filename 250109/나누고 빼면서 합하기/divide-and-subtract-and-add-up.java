@@ -21,16 +21,16 @@ public class Main {
         int total = 0;
         while (true) {
             if (m == 1) {
-                total += A[m];
+                total += A[m-1];
                 break;
             }
 
             else if (m % 2 == 1) {
-                total += A[m];
+                total += A[m-1];
                 m -= 1;
             }
             else {
-                total += A[m];
+                total += A[m-1];
                 m /= 2;
             }
         }
