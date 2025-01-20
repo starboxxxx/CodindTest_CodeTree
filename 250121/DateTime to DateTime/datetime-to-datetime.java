@@ -11,6 +11,11 @@ public class Main {
         int total1 = 11 * 24 * 60 + 60 * 11 + 11;
         int total2 = a * 24 * 60 + 60 * b + c;
 
-        System.out.print(total2 - total1); 
+        if (total2 < total1) {
+            Systemn.out.print(-1);
+        }
+        else {
+            System.out.print(total2 - total1); 
+        }
     }
 }
