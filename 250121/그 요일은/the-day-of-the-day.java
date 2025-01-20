@@ -17,7 +17,7 @@ public class Main {
 
         int n = Arrays.asList(weeks).indexOf(A);
 
-        int count = 1;
+        int count = 0;
 
         int day1 = 0;
         int day2 = 0;
@@ -30,7 +30,7 @@ public class Main {
         for (int i = 1; i<m2; i++) {
             day2 += days[i];
         }
-        day2 += d1;
+        day2 += d2;
 
         int total = day2 - day1 + n;
 
