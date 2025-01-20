@@ -12,7 +12,7 @@ public class Main {
         int total2 = a * 24 * 60 + 60 * b + c;
 
         if (total2 < total1) {
-            Systemn.out.print(-1);
+            System.out.print(-1);
         }
         else {
             System.out.print(total2 - total1); 
