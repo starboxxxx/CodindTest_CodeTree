@@ -33,7 +33,12 @@ public class Main {
             total = day1 - day2;
             int result = total % 7;
 
-            System.out.print(weeks[7-result]);
+            if (result == 0) {
+                System.out.print("Mon");
+            }
+            else {
+                System.out.print(weeks[7-result]);
+            }
         }
 
         else {
