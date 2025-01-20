@@ -37,7 +37,12 @@ public class Main {
 
         count += total / 7;
 
-        System.out.print(count);
 
+        if (m1 == m2 && d1 == d2) {
+            System.out.print(0);
+        }
+        else {
+            System.out.print(count);
+        }
     }
 }
