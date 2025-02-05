@@ -10,8 +10,8 @@ public class Main {
 
 
         for (int i = 0; i<n; i++) {
-            int x1 = sc.nextInt()+100 - 1;
-            int x2 = sc.nextInt()+100 - 2;
+            int x1 = sc.nextInt()+100;
+            int x2 = sc.nextInt()+100-1;
 
             for (int j = x1; j<=x2; j++) {
                 result[j]++;
