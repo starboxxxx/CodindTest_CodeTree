@@ -6,20 +6,27 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt();
 
-        int current = 0;
-        int count = 1;
+        int[] num = new int[N];
+        for (int i = 0; i<N; i++) {
+            num[i] = sc.nextInt();
+        }
+
+        int count = 0;
         int max = 0;
         for (int i = 0; i<N; i++) {
-            int num = sc.nextInt();
-            if (num != current) {
-                current = num;
-                if (count>max) {
+            if (i == 0 || num[i] != num[i-1]) {
+                if (count > max) {
                     max = count;
                 }
-                count=1;
+                count = 1;
             }
             else {
                 count++;
+                if (i == N-1) {
+                    if (count > max) {
+                        max = count;
+                    }
+                }
             }
         }
 
