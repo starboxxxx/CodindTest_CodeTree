@@ -7,7 +7,7 @@ public class Main {
         int N = sc.nextInt();
 
         int current = 0;
-        int count = 0;
+        int count = 1;
         int max = 0;
         for (int i = 0; i<N; i++) {
             int num = sc.nextInt();
