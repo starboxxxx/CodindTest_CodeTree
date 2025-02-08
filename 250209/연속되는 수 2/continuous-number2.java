@@ -15,19 +15,15 @@ public class Main {
         int max = 1;
         for (int i = 0; i<N; i++) {
             if (i == 0 || num[i] != num[i-1]) {
-                if (count > max) {
-                    max = count;
-                }
                 count = 1;
             }
             else {
                 count++;
-                if (i == N-1) {
-                    if (count > max) {
-                        max = count;
-                    }
-                }
             }
+
+            if (count > max) {
+                    max = count;
+                }
         }
 
         System.out.print(max);
