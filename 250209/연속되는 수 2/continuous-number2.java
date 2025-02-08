@@ -12,7 +12,7 @@ public class Main {
         }
 
         int count = 0;
-        int max = 0;
+        int max = 1;
         for (int i = 0; i<N; i++) {
             if (i == 0 || num[i] != num[i-1]) {
                 if (count > max) {
