@@ -50,7 +50,7 @@ public class Main {
             timeB += t;
         }
 
-        for (int i = 1; i<=Math.min(timeA-1, timeB-1); i++) {
+        for (int i = 1; i<=Math.min(timeA, timeB); i++) {
             if (A[i] == 0 || B[i] == 0) {
                 System.out.print(-1);
                 break;
