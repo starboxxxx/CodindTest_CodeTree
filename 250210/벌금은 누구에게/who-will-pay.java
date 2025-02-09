@@ -19,7 +19,10 @@ public class Main {
             if (students[num]==K) {
                 System.out.print(num);
                 break;
-            }      
+            }   
+            else if (i==M-1) {
+                System.out.print(-1);
+            }   
         }
     }
 }
