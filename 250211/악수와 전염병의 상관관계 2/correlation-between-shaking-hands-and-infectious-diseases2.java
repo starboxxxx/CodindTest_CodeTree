@@ -13,7 +13,7 @@ public class Main {
         int[] people = new int[N+1];
         int[] move = new int[N+1];
 
-        people[K] = 1;
+        people[P] = 1;
         int[][] result = new int[251][2];
 
         for (int i = 0; i<T; i++) {
@@ -26,7 +26,7 @@ public class Main {
         }
 
         int x, y;
-        for (int i = 0; i<251; i++) {
+        for (int i = 1; i<251; i++) {
             if (result[i][0] != 0 && result[i][1] != 0) {
                 x = result[i][0];
                 y = result[i][1];
