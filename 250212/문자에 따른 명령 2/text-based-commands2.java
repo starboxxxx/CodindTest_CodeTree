@@ -7,10 +7,10 @@ public class Main {
         int x = 0;
         int y = 0;
 
-        int dir = 1;
+        int dir = 0;
 
-        int[] dirX = new int[]{1, 0, -1, 0};
-        int[] dirY = new int[]{0, -1, 0, 1};
+        int[] dirX = new int[]{0, 1, 0, -1};
+        int[] dirY = new int[]{1, 0, -1, 0};
 
         String word = sc.next();
 
@@ -18,10 +18,10 @@ public class Main {
             char a = word.charAt(i);
 
             if (a == 'L') {
-                dir = (dir + 1) % 4;
+                dir = (dir + 3) % 4;
             }
             else if (a == 'R') {
-                dir = (dir + 3) % 4;
+                dir = (dir + 1) % 4;
             }
             else {
                 x += dirX[dir];
