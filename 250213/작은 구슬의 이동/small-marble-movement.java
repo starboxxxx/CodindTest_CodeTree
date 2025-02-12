@@ -39,7 +39,7 @@ public class Main {
             int nx = x + dx[dir];
             int ny = y + dy[dir];
 
-            if (nx<=0 || nx>=N || ny<=0 || ny>=N) {
+            if (nx<=0 || nx>N || ny<=0 || ny>N) {
                 dir = 3 - dir;
             }
 
