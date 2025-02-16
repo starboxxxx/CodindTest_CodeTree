@@ -106,7 +106,7 @@ public class Main {
                 count++;
                 ax = bx + dirX[num];
                 ay = by + dirY[num];
-                if (ax < 0 || ay >=N || bx <0 || by >= N) {
+                if (ax < 0 || ax >=N || ay <0 || ay >= N) {
                     System.out.print(count);
                     break;
                 }
