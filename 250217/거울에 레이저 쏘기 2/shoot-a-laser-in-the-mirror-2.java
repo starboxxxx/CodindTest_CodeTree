@@ -63,55 +63,47 @@ public class Main {
                 num = 2;
             }
         }
-        count++;
-        ax = bx + dirX[num];
-        ay = by + dirY[num];
+        while (true) {
+            count++;
+            ax = bx + dirX[num];
+            ay = by + dirY[num];
 
-        if (ax < 0 || ax >=N || ay < 0 || ay >= N) {
-            System.out.print(count);
-        }
-        else {
-            while (true) {
-                String value = tile[ax][ay];
-                bx = ax;
-                by = ay;
-                if (value.equals("/")) {
-                    if (num == 0) {
-                        num=1;
-                    }
-                    else if (num == 1) {
-                        num = 0;
-                    }
-                    else if (num == 2) {
-                        num = 3;
-                    }
-                    else {
-                        num = 2;
-                    }
+            if (ax < 0 || ax >=N || ay < 0 || ay >= N) {
+                System.out.print(count);
+                break;
+            }
+            String value = tile[ax][ay];
+            bx = ax;
+            by = ay;
+            if (value.equals("/")) {
+                if (num == 0) {
+                    num=1;
+                }
+                else if (num == 1) {
+                    num = 0;
+                }
+                else if (num == 2) {
+                    num = 3;
                 }
                 else {
-                    if (num == 0) {
-                        num = 3;
-                    }
-                    else if (num == 1) {
-                        num = 2;
-                    }
-                    else if (num == 2) {
-                        num = 1;
-                    }
-                    else {
-                        num = 0;
-                    }
+                    num = 2;
                 }
-                count++;
-                ax = bx + dirX[num];
-                ay = by + dirY[num];
-                if (ax < 0 || ax >=N || ay <0 || ay >= N) {
-                    System.out.print(count);
-                    break;
-                }
-
             }
+            else {
+                if (num == 0) {
+                    num = 3;
+                }
+                else if (num == 1) {
+                    num = 2;
+                }
+                else if (num == 2) {
+                    num = 1;
+                }
+                else {
+                    num = 0;
+                }
+            }
+
         }
 
     }
