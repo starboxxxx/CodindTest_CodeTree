@@ -14,7 +14,7 @@ public class Main {
         int dir = 0;
         int dx, dy, x=0, y=0;
 
-
+        int current=65;
 
         for (int i = 1; i<N*M; i++) {
             dx = x + dirX[dir];
@@ -25,7 +25,11 @@ public class Main {
 
             x += dirX[dir];
             y += dirY[dir];
-            alpha[x][y] = (char)('A'+i);
+            current++;
+            if (current > 90) {
+                current = 65;
+            }
+            alpha[x][y] = (char)(current);
         }
 
         for (int i = 0; i<N; i++) {
