@@ -18,7 +18,7 @@ public class Main {
 
         String current = a[0][0];
 
-        if (a[R-1][C-1] == current) {
+        if (a[R-1][C-1].equals(current)) {
             System.out.print(0);
         }
 
