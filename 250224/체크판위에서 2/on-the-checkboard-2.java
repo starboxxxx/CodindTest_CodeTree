@@ -26,7 +26,6 @@ public class Main {
                         for (int k = j+1; k<=C-2; k++) {
                             if (a[z][k].equals(current)) {
                                 count++;
-                                System.out.print(count);
                             }
                         }
                     }
