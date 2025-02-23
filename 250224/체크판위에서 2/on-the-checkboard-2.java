@@ -17,22 +17,29 @@ public class Main {
         }
 
         String current = a[0][0];
-        int count = 0;
 
-        for (int i = 1; i<=R-3; i++) {
-            for (int j = 1; j<=C-3; j++) {
-                if (!a[i][j].equals(current)) {
-                    for (int z = i+1; z<=R-2; z++) {
-                        for (int k = j+1; k<=C-2; k++) {
-                            if (a[z][k].equals(current)) {
-                                count++;
+        if (a[R-1][C-1] == current) {
+            System.out.print(0);
+        }
+
+        else {
+            int count = 0;
+
+            for (int i = 1; i<=R-3; i++) {
+                for (int j = 1; j<=C-3; j++) {
+                    if (!a[i][j].equals(current)) {
+                        for (int z = i+1; z<=R-2; z++) {
+                            for (int k = j+1; k<=C-2; k++) {
+                                if (a[z][k].equals(current)) {
+                                    count++;
+                                }
                             }
                         }
                     }
                 }
             }
-        }
 
-        System.out.print(count);
+            System.out.print(count);
+        }
     }
 }
