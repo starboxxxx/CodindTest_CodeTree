@@ -22,9 +22,11 @@ public class Main {
         for (int i = 1; i<=R-3; i++) {
             for (int j = 1; j<=C-3; j++) {
                 if (!a[i][j].equals(current)) {
-                    for (int k = j+1; k<=C-2; k++) {
-                        if (a[i][k].equals(current)) {
-                            count++;
+                    for (int z = i+1; z<=R-2; z++) {
+                        for (int k = j+1; k<=C-2; k++) {
+                            if (a[z][k].equals(current)) {
+                                count++;
+                            }
                         }
                     }
                 }
