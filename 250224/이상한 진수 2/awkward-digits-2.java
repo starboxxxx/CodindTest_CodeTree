@@ -10,24 +10,38 @@ public class Main {
             result[i] = a.charAt(i);
         }
 
+        char original;
+
+        int max = 0;
+
         for (int i = 1; i<a.length(); i++) {
             if (result[i] == '0') {
+                original = '0';
                 result[i] = '1';
-                break;
             }
-        }
+            else {
+                original = '1';
+                result[i] = '0';
+            }
 
-        int number = 0;
+            int number = 0;
 
-        for (int i = 0; i<a.length(); i++) {
-            number = number * 2 + (result[i]-'0');
+            for (int j = 0; j<a.length(); j++) {
+                number = number * 2 + (result[j]-'0');
+            }
+
+            if (number > max) {
+                max = number;
+            }
+            
+            result[i] = original;
         }
 
         if (a.equals("1")) {
             System.out.print(0);
         }
         else {
-            System.out.print(number);   
+            System.out.print(max);   
         }
     }
 }
