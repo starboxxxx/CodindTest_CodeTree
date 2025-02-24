@@ -10,8 +10,7 @@ public class Main {
             result[i] = a.charAt(i);
         }
 
-
-        for (int i = 0; i<a.length(); i++) {
+        for (int i = 1; i<a.length(); i++) {
             if (result[i] == '0') {
                 result[i] = '1';
                 break;
@@ -24,6 +23,11 @@ public class Main {
             number = number * 2 + (result[i]-'0');
         }
 
-        System.out.print(number);
+        if (a.equals("1")) {
+            System.out.print(0);
+        }
+        else {
+            System.out.print(number);   
+        }
     }
 }
