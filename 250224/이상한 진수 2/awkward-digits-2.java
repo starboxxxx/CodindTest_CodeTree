@@ -37,11 +37,6 @@ public class Main {
             result[i] = original;
         }
 
-        if (a.equals("1")) {
-            System.out.print(0);
-        }
-        else {
-            System.out.print(max);   
-        }
+        System.out.print(max);
     }
 }
