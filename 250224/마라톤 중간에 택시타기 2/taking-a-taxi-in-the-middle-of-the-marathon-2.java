@@ -20,11 +20,11 @@ public class Main {
                     continue;
                 }
                 else if (j == i+1) {
-                    int s = Math.abs(x[j-2] - x[j]) + Math.abs(y[j-2] + y[j]);
+                    int s = Math.abs(x[j-2] - x[j]) + Math.abs(y[j-2] - y[j]);
                     distance += s;
                 }
                 else {
-                    int s = Math.abs(x[j-1] - x[j]) + Math.abs(y[j-1] + y[j]);
+                    int s = Math.abs(x[j-1] - x[j]) + Math.abs(y[j-1] - y[j]);
                     distance += s;
                 }
             }
