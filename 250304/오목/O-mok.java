@@ -67,5 +67,9 @@ public class Main {
                 }
             }
         }
+
+        if (answer == false) {
+            System.out.print(0);
+        }
     }
 }
