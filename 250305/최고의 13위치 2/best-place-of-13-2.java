@@ -9,47 +9,38 @@ public class Main {
                 arr[i][j] = sc.nextInt();
         
 
-        int maxA = 0;
-        int maxX = 0;
-        int maxY = 0;
-        int total = 0;
+        int max = 0;
+        int totalA = 0;
+        int totalB = 0;
 
         for (int i = 0; i<n; i++) {
             for (int j = 0; j<=n-3; j++) {
                 for (int z = j; z<=j+2; z++) {
                     if (arr[i][z] == 1) {
-                        total++;
+                        totalA++;
                     }
                 }
-                if (total > maxA) {
-                    maxA = total;
-                    maxX = i;
-                    maxY = j;
+                for (int a = 0; a<n; a++) {
+                    for (int b = 0; b<=n-3; b++) {
+                        for (int c = b; c<=b+2; c++) {
+                            if (c >= j && c <= j + 2 && a == i) {
+                                totalB = 0;
+                                break;
+                            }
+                            else if (arr[a][c] == 1) {
+                                totalB++;
+                            }
+                        }
+                        if (totalA + totalB > max) {
+                            max = totalA + totalB;
+                        }
+                        totalB = 0;
+                    }
                 }
-                total = 0;
+                totalA = 0;
             }
         }
 
-        int maxB = 0;
-        
-        for (int i = 0; i<n; i++) {
-            for (int j = 0; j<=n-3; j++) {
-                for (int z = j; z<=j+2; z++) {
-                    if (z >= maxY && z <= maxY + 2 && i == maxX) {
-                        total = 0;
-                        break;
-                    }
-                    else if (arr[i][z] == 1) {
-                        total++;
-                    }
-                }
-                if (total>maxB) {
-                    maxB = total;
-                }
-                total = 0;
-            }
-        }
-
-        System.out.print(maxA + maxB);
+        System.out.print(max);
     }
 }
