@@ -4,7 +4,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int k = sc.nextInt();
-        int[] candies = new int[100];
+        int[] candies = new int[101];
         for (int i = 0; i < n; i++) {
             int num = sc.nextInt();
             int position = sc.nextInt();
@@ -19,7 +19,7 @@ public class Main {
 
         int max = 0;
 
-        for (int i = 0; i<=99-(2*k); i++) {
+        for (int i = 0; i<=100-(2*k); i++) {
             int total = 0;
             for (int j = i; j<=i + (2*k); j++) {
                 total += candies[j];
