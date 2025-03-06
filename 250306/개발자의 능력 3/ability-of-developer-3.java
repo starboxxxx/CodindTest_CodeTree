@@ -14,9 +14,9 @@ public class Main {
 
         for (int i = 0; i<6; i++) {
             for (int j = i+1; j<6; j++) {
-                int sum2 = 0;
-                int sum1 = 0;
                 for (int z = j+1; z<6; z++) {
+                    int sum2 = 0;
+                    int sum1 = 0;
                     sum2 += ability[i];
                     sum2 += ability[j];
                     sum2 += ability[z];
