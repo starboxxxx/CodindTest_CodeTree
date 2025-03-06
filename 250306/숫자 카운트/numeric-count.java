@@ -16,6 +16,9 @@ public class Main {
         for (int i = 1; i<=9; i++) {
             for (int j = 1; j<=9; j++) {
                 for (int z = 1; z<=9; z++) {
+                    if (i == j || j == z || z == i) {
+                        continue;
+                    }
                     for (int h = 0; h<n; h++) {
                         int sumA = 0;
                         int sumB = 0;
