@@ -22,7 +22,7 @@ public class Main {
                 for (int a = 0; a<6; a++) {
                     for (int b = a+1; b<6; b++) {
                         if (a == i || a == j || b == i || b== j) {
-                            break;
+                            continue;
                         }
                         sum[1] = ability[a] + ability[b];
 
