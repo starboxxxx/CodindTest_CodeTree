@@ -37,14 +37,14 @@ public class Main {
 
                 else if (x2[i] < x1[i]) {
                     if (x2[j] > x1[j]) {
-                        if (x1[j] < x1[i] && x2[j] > x2[i]) {
+                        if (x1[j] < x2[i] && x2[j] > x1[i]) {
                             success = false;
                             break;
                         }
                     }
 
                     else {
-                        if ((x1[j] < x2[i] && x2[j] > x1[i]) || (x1[j] > x2[i] && x2[j] < x1[i])) {
+                        if ((x1[j] < x1[i] && x2[j] > x2[i]) || (x1[j] > x1[i] && x2[j] < x2[i])) {
                             success = false;
                             break;
                         }
