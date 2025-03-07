@@ -9,7 +9,7 @@ public class Main {
 
         int[][] eat = new int[D][3];
 
-        int[] people = new int[51];
+        int[] people = new int[N+1];
 
 
         for (int i = 0; i < D; i++) {
@@ -44,7 +44,7 @@ public class Main {
         }
 
         int count = 0;
-        for (int i = 1; i<51; i++) {
+        for (int i = 1; i<N+1; i++) {
             if (people[i] == 1) {
                 count++;
             }
