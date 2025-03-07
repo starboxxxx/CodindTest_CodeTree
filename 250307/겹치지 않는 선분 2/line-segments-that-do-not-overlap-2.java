@@ -17,11 +17,36 @@ public class Main {
                     continue;
                 }
 
-                if ((x1[j] < x1[i] && x2[j] > x2[i]) || (x1[j] > x1[i] && x2[j] < x1[i])) {
-                    break;
+                if (x2[i]> x1[i]) {
+
+                    if (x2[j] > x1[j]) {
+                        if ((x1[j] < x1[i] && x2[j] > x2[i]) || (x1[j] > x1[i] && x2[j] < x1[i])) {
+                            break;
+                        }
+                    }
+
+                    else {
+                        if (x1[j] < x2[i] && x2[j] > x1[i]) {
+                            break;
+                        }
+                    }
                 }
 
-                else if (j == n-1) {
+                else if (x2[i] < x1[i]) {
+                    if (x2[j] > x1[j]) {
+                        if (x1[j] < x2[i] && x2[j] > x1[i]) {
+                            break;
+                        }
+                    }
+
+                    else {
+                        if ((x1[j] < x1[i] && x2[j] > x2[i]) || (x1[j] > x1[i] && x2[j] < x1[i])) {
+                            break;
+                        }
+                    }
+                }
+
+                if (j == n-1) {
                     count++;
                 }
 
