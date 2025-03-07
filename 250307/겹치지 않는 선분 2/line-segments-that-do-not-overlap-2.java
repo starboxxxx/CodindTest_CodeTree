@@ -12,6 +12,7 @@ public class Main {
 
         int count = 0;        
         for (int i = 0; i<n; i++) {
+            boolean success = true;
             for (int j = 0; j<n; j++) {
                 if (j == i) {
                     continue;
@@ -20,13 +21,15 @@ public class Main {
                 if (x2[i]> x1[i]) {
 
                     if (x2[j] > x1[j]) {
-                        if ((x1[j] < x1[i] && x2[j] > x2[i]) || (x1[j] > x1[i] && x2[j] < x1[i])) {
+                        if ((x1[j] < x1[i] && x2[j] > x2[i]) || (x1[j] > x1[i] && x2[j] < x2[i])) {
+                            success = false;
                             break;
                         }
                     }
 
                     else {
                         if (x1[j] < x2[i] && x2[j] > x1[i]) {
+                            success = false;
                             break;
                         }
                     }
@@ -34,22 +37,22 @@ public class Main {
 
                 else if (x2[i] < x1[i]) {
                     if (x2[j] > x1[j]) {
-                        if (x1[j] < x2[i] && x2[j] > x1[i]) {
+                        if (x1[j] < x1[i] && x2[j] > x2[i]) {
+                            success = false;
                             break;
                         }
                     }
 
                     else {
-                        if ((x1[j] < x1[i] && x2[j] > x2[i]) || (x1[j] > x1[i] && x2[j] < x1[i])) {
+                        if ((x1[j] < x2[i] && x2[j] > x1[i]) || (x1[j] > x2[i] && x2[j] < x1[i])) {
+                            success = false;
                             break;
                         }
                     }
                 }
-
-                if (j == n-1) {
-                    count++;
-                }
-
+            }
+            if (success == true) {
+                count++;
             }
         }
 
