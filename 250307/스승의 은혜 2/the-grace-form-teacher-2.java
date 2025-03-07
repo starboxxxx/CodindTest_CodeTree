@@ -28,10 +28,11 @@ public class Main {
 
                 if (total > b) {
                     count--;
-                    if (count > max) {
-                        max = count;
-                    }
+                    break;
                 }
+            }
+            if (count > max) {
+                max = count;
             }
         }
 
