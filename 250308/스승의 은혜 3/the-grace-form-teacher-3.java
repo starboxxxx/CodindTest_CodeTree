@@ -20,8 +20,9 @@ public class Main {
             price += s[i];
 
             if (price > b) {
-                break;
+                continue;
             }
+            
             count++;
 
             int[] total = new int[n];
