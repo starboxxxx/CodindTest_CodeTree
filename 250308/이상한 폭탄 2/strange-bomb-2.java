@@ -10,7 +10,7 @@ public class Main {
             bombs[i] = sc.nextInt();
         }
 
-        int max = 0;
+        int max = -1;
         
         for (int i = 0; i<n-1; i++) {
             for (int j = i+1; j<n; j++) {
@@ -22,7 +22,12 @@ public class Main {
             }
         }
 
-        System.out.print(max);
+        if (max == -1) {
+            System.out.print(-1);
+        }
+        else {
+            System.out.print(max);
+        }
         
     }
 }
