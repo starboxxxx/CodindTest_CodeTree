@@ -14,7 +14,7 @@ public class Main {
         
         for (int i = 0; i<n-1; i++) {
             for (int j = i+1; j<n; j++) {
-                if (bombs[i] == bombs[j] && j-i <= 3) {
+                if (bombs[i] == bombs[j] && j-i <= k) {
                     if (bombs[i] > max) {
                         max = bombs[i];
                     }
