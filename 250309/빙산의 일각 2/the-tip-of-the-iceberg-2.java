@@ -12,12 +12,10 @@ public class Main {
             min = Math.min(min, h[i]);
         }
 
-        int answer = 1;
-        int current = 0;
+        int answer = 0;
 
-        int a = -1;
-
-        for (int i = min + 1; i<= max - 1; i++) {
+        for (int i = min; i<= max; i++) {
+            int a = -1;
             int count = 0;
             
             for (int j = 0; j<n; j++) {
@@ -38,7 +36,6 @@ public class Main {
                     count++;
                 }
             }
-
             answer = Math.max(answer, count);
         }
 
