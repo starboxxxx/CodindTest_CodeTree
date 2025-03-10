@@ -25,7 +25,7 @@ public class Main {
             }
         }
 
-        if (count <= 3) {
+        if (count == 3) {
             System.out.print(1);
         }
         else {
