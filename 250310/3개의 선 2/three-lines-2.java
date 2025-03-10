@@ -1,35 +1,82 @@
-import java.util.*;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        int[] x = new int[11];
-        int[] y = new int[11];
+        int[] x = new int[n];
+        int[] y = new int[n];
         for (int i = 0; i < n; i++) {
-            int a = sc.nextInt();
-            int b = sc.nextInt();
-
-            x[a]++;
-            y[b]++;
+            x[i] = sc.nextInt();
+            y[i] = sc.nextInt();
         }
 
-        Integer[] result = new Integer[21];
+        int ans = 0;
 
-        for (int i = 0; i<11; i++) {
-            result[i] = x[i];
-            result[10+i] = y[i];
+        for (int i = 0; i<=10; i++) {
+            for (int j = 0; j<=10; j++) {
+                for (int z = 0; z<=10; z++) {
+                    boolean success = true;
+
+                    for (int l = 0; l<n; l++) {
+                        if (x[l] == i || x[l] == j || x[l] == z) {
+                            continue;
+                        }
+                        success = false;
+                        break;
+                    }
+
+                    if (success) {
+                        ans = 1;
+                    }
+
+                    success = true;
+
+                    for (int l = 0; l<n; l++) {
+                        if (x[l] == i || x[l] == j || y[l] == z) {
+                            continue;
+                        }
+                        success = false;
+                        break;
+                    }
+
+                    if (success) {
+                        ans = 1;
+                    }
+
+                    success = true;
+
+                    for (int l = 0; l<n; l++) {
+                        if (x[l] == i || y[l] == j || y[l] == z) {
+                            continue;
+                        }
+                        success = false;
+                        break;
+                    }
+
+                    if (success) {
+                        ans = 1;
+                    }
+
+                    success = true;
+
+                    for (int l = 0; l<n; l++) {
+                        if (y[l] == i || y[l] == j || y[l] == z) {
+                            continue;
+                        }
+
+                        success = false;
+                        break;
+                    }
+
+                    if (success) {
+                        ans = 1;
+                    }
+                }
+            }
         }
 
-        Arrays.sort(result, Collections.reverseOrder());
-
-        if (result[0] + result[1] + result[2] >= 6) {
-            System.out.print(1);
-        }
-        else {
-            System.out.print(0);
-        }
-
+        System.out.print(ans);
 
     }
 }
