@@ -1,31 +1,29 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        int[] x = new int[n];
-        int[] y = new int[n];
+        int[] x = new int[11];
+        int[] y = new int[11];
         for (int i = 0; i < n; i++) {
-            x[i] = sc.nextInt();
-            y[i] = sc.nextInt();
-        }
-        
-        int[] countX = new int[11];
-        int[] countY = new int[11];
+            int a = sc.nextInt();
+            int b = sc.nextInt();
 
-
-        int count = 0;
-        for (int i = 0; i<n; i++) {
-            if (countX[x[i]] == 0 && countY[y[i]] == 0) {
-                countX[x[i]] = 1;
-                countY[y[i]] = 1;
-                
-                count++;
-            }
+            x[a]++;
+            y[b]++;
         }
 
-        if (count == 3) {
+        Integer[] result = new Integer[21];
+
+        for (int i = 0; i<11; i++) {
+            result[i] = x[i];
+            result[10+i] = y[i];
+        }
+
+        Arrays.sort(result, Collections.reverseOrder());
+
+        if (result[0] + result[1] + result[2] >= 6) {
             System.out.print(1);
         }
         else {
