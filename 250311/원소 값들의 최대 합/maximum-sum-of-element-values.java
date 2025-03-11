@@ -12,13 +12,17 @@ public class Main {
         int max = 0;
         
         for (int i = 1; i<=n; i++) {
-            int a = arr[i];
-            int b = arr[a];
-            int c = arr[b];
+            int index = i;
+            int count = 0;
+            for (int j = 0; j<m; j++) {
+                int num = arr[index];
+                index = num;
+                count += num;
+            }
 
             
-            if (a + b + c > max) {
-                max = a + b + c;
+            if (count > max) {
+                max = count;
             }
         }
 
