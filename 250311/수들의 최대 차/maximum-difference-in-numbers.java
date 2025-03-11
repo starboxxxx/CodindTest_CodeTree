@@ -34,6 +34,10 @@ public class Main {
                 System.out.print(i-1);
                 break;
             }
+
+            if (i == n) {
+                System.out.print(n);
+            }
         }
     }
 }
