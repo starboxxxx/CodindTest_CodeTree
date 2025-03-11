@@ -17,7 +17,7 @@ public class Main {
                     
                 }
 
-                for (int h = j+i+1; h<n-i; h++) {
+                for (int h = j+1; h<n-i; h++) {
                     for (int k = h; k<= h+i; k++) {
                         if (str.charAt(k) != s[k-h]) {
                             break;
