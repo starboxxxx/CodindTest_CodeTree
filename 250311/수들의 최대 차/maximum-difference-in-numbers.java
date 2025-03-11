@@ -21,6 +21,7 @@ public class Main {
 
             if (max - min > k) {
                 System.out.print(i);
+                break;
             }
         }
     }
