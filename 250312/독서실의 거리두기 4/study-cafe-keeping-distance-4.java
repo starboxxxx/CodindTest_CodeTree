@@ -37,10 +37,10 @@ public class Main {
                         if (min > max) {
                             max = min;
                         }
-                        people[i] = 0;
                         people[j] = 0;
                     }
                 }
+                people[i] = 0;
             }
         }
 
