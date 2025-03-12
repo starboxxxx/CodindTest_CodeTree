@@ -55,7 +55,7 @@ public class Main {
                         count2 += (result[k] + 1) * (result[k] + 1);
                     }
                 }
-                if (count1 <= count2) {
+                if (count1 < count2) {
                     for (int b = 0; b<n; b++) {
                         if (maxList[b] == 1) {
                             result[b]++;
