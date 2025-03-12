@@ -12,9 +12,7 @@ public class Main {
 
         for (int i = 1; i<=100; i++) {
             int[] maxList = new int[n];
-            int maxCount = 0;
             int[] minList = new int[n];
-            int minCount = 0;
             int max = 0;
             int min = Integer.MAX_VALUE;
             for (int j = 0; j<n; j++) {
@@ -22,22 +20,18 @@ public class Main {
                     max = arr[j];
                     maxList = new int[n];
                     maxList[j] = 1;
-                    maxCount = 1;
                 }
                 else if (arr[j] == max) {
                     maxList[j] = 1;
-                    maxCount++;
                 }
 
                 if (arr[j] < min) {
                     min = arr[j];
                     minList = new int[n];
                     minList[j] = 1;
-                    minCount = 1;
                 }
                 else if (arr[j] == min) {
                     minList[j] = 1;
-                    minCount++;
                 }
             }
 
@@ -50,48 +44,30 @@ public class Main {
                 break;
             }
             else if (max - 1 - min <= 17) {
-                if (maxCount < minCount) {
-                    for (int k = 0; k<n; k++) {
-                        if (maxList[k] == 1) {
-                            result[k]++;
-                            arr[k]--;
-                        }
+                int count1 = 0;
+                int count2 = 0;
+                for (int k = 0; k<n; k++) {
+                    if (maxList[k] == 1) {
+                        count1 += (result[k] + 1) * (result[k] + 1);
+                    }
+
+                    if (minList[k] == 1) {
+                        count2 += (result[k] + 1) * (result[k] + 1);
                     }
                 }
-                else if (minCount < maxCount) {
-                    for (int k = 0; k<n; k++) {
-                        if (minList[k] == 1) {
-                            result[k]++;
-                            arr[k]++;
+                if (count1 >= count2) {
+                    for (int b = 0; b<n; b++) {
+                        if (maxList[b] == 1) {
+                            result[b]++;
+                            arr[b]--;
                         }
                     }
                 }
                 else {
-                    int count1 = 0;
-                    int count2 = 0;
-                    for (int k = 0; k<n; k++) {
-                        if (maxList[k] == 1) {
-                            count1 += (result[k] + 1) * (result[k] + 1);
-                        }
-
-                        if (minList[k] == 1) {
-                            count2 += (result[k] + 1) * (result[k] + 1);
-                        }
-                    }
-                    if (count1 >= count2) {
-                        for (int b = 0; b<n; b++) {
-                            if (maxList[b] == 1) {
-                                result[b]++;
-                                arr[b]--;
-                            }
-                        }
-                    }
-                    else {
-                        for (int b = 0; b<n; b++) {
-                            if (minList[b] == 1) {
-                                result[b]++;
-                                arr[b]++;
-                            }
+                    for (int b = 0; b<n; b++) {
+                        if (minList[b] == 1) {
+                            result[b]++;
+                            arr[b]++;
                         }
                     }
                 }
