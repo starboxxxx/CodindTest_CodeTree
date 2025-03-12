@@ -10,7 +10,7 @@ public class Main {
         }
         int[] result = new int[n];
 
-        for (int i = 1; i<100; i++) {
+        for (int i = 1; i<=100; i++) {
             int[] maxList = new int[n];
             int maxCount = 0;
             int[] minList = new int[n];
