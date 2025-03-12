@@ -50,7 +50,7 @@ public class Main {
                 break;
             }
             else if (max - 1 - min <= 17) {
-                if (maxCount <= minCount) {
+                if (maxCount < minCount) {
                     for (int k = 0; k<n; k++) {
                         if (maxList[k] == 1) {
                             result[k]++;
@@ -58,11 +58,40 @@ public class Main {
                         }
                     }
                 }
-                else {
+                else if (minCount < maxCount) {
                     for (int k = 0; k<n; k++) {
                         if (minList[k] == 1) {
                             result[k]++;
                             arr[k]++;
+                        }
+                    }
+                }
+                else {
+                    int count1 = 0;
+                    int count2 = 0;
+                    for (int k = 0; k<n; k++) {
+                        if (maxList[k] == 1) {
+                            count1 += (result[k] + 1) * (result[k] + 1);
+                        }
+
+                        if (minList[k] == 1) {
+                            count2 += (result[k] + 1) * (result[k] + 1);
+                        }
+                    }
+                    if (count1 >= count2) {
+                        for (int b = 0; b<n; b++) {
+                            if (maxList[b] == 1) {
+                                result[b]++;
+                                arr[b]--;
+                            }
+                        }
+                    }
+                    else {
+                        for (int b = 0; b<n; b++) {
+                            if (minList[b] == 1) {
+                                result[b]++;
+                                arr[b]++;
+                            }
                         }
                     }
                 }
