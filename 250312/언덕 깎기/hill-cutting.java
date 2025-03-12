@@ -8,84 +8,27 @@ public class Main {
         for (int i = 0; i < n; i++) {
             arr[i] = sc.nextInt();
         }
-        int[] result = new int[n];
+        
+        int answer = Integer.MAX_VALUE;
 
-        for (int i = 1; i<=100; i++) {
-            int[] maxList = new int[n];
-            int[] minList = new int[n];
-            int max = 0;
-            int min = Integer.MAX_VALUE;
+        for (int i = 0; i<=100; i++) {
+            int cost = 0;
+
             for (int j = 0; j<n; j++) {
-                if (arr[j] > max) {
-                    max = arr[j];
-                    maxList = new int[n];
-                    maxList[j] = 1;
-                }
-                else if (arr[j] == max) {
-                    maxList[j] = 1;
+                if (arr[j] < i) {
+                    cost += (arr[j] - i) * (arr[j] - i);
                 }
 
-                if (arr[j] < min) {
-                    min = arr[j];
-                    minList = new int[n];
-                    minList[j] = 1;
-                }
-                else if (arr[j] == min) {
-                    minList[j] = 1;
+                if (arr[j] > i + 17) {
+                    cost += (arr[j] - (i + 17)) * (arr[j] - (i + 17));
                 }
             }
 
-            if (max - min<=17) {
-                int cost = 0;
-                for (int j=0; j<n; j++) {
-                    cost += (result[j] * result[j]);
-                }
-                System.out.print(cost);
-                break;
+            if (cost < answer) {
+                answer = cost;
             }
-            else if (max - 1 - min <= 17) {
-                int count1 = 0;
-                int count2 = 0;
-                for (int k = 0; k<n; k++) {
-                    if (maxList[k] == 1) {
-                        count1 += (result[k] + 1) * (result[k] + 1);
-                    }
-
-                    if (minList[k] == 1) {
-                        count2 += (result[k] + 1) * (result[k] + 1);
-                    }
-                }
-                if (count1 < count2) {
-                    for (int b = 0; b<n; b++) {
-                        if (maxList[b] == 1) {
-                            result[b]++;
-                            arr[b]--;
-                        }
-                    }
-                }
-                else {
-                    for (int b = 0; b<n; b++) {
-                        if (minList[b] == 1) {
-                            result[b]++;
-                            arr[b]++;
-                        }
-                    }
-                }
-            }
-            else {
-                for (int k = 0; k<n; k++) {
-                    if (maxList[k] == 1) {
-                        result[k]++;
-                        arr[k]--;
-                    }
-                    
-                    else if (minList[k] == 1) {
-                        result[k]++;
-                        arr[k]++;
-                    }
-                }
-            }
-
         }
+
+        System.out.print(answer);
     }
 }
