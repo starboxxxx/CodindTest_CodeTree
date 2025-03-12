@@ -21,7 +21,7 @@ public class Main {
                 }
             }
 
-            if (count > max) {
+            if (count > max && bombs[j] > answer) {
                 max = count;
                 answer = bombs[j];
             }
