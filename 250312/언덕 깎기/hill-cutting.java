@@ -74,7 +74,7 @@ public class Main {
                         arr[k]--;
                     }
                     
-                    if (minList[k] == 1) {
+                    else if (minList[k] == 1) {
                         result[k]++;
                         arr[k]++;
                     }
