@@ -16,7 +16,7 @@ public class Main {
             int[] num = new int[n];
             num[0] = i;
             for (int j = 0; j<n-1; j++) {
-                if (arr[j] - num[j] <= n) {
+                if (arr[j] - num[j] <= n && arr[j] - num[j] >= 1) {
                     int x = arr[j] - num[j];
                     for (int z = 0; z<n; z++) {
                         if (x == num[z]) {
