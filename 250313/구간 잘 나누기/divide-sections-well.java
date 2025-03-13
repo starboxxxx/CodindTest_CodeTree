@@ -21,23 +21,23 @@ public class Main {
             int sum = 0;
             int count = 0;
             for (int j = 0; j<n; j++) {
-                if (num[j] + sum > k) {
-                    if (j==n-1) {
+                if (j == n-1) {
+                    if (sum + num[j] > k) {
                         count += 2;
                     }
                     else {
                         count++;
-                        sum = num[j];
                     }
                 }
-                else if (num[j] + sum == k) {
-                    count++;
-                    sum = 0;
-                }
-                else {
 
-                    if (j == n-1) {
+                else {
+                    if (sum + num[j] > k) {
                         count++;
+                        sum = num[j];
+                    }
+                    else if (sum + num[j] == k) {
+                        count++;
+                        sum = 0;
                     }
                     else {
                         sum += num[j];
