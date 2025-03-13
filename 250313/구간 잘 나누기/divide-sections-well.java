@@ -9,13 +9,11 @@ public class Main {
 
         int[] num = new int[n];
 
-        int max = 0;
         for (int i = 0; i<n; i++) {
             num[i] = sc.nextInt();
-            max = Math.max(max, num[i]);
         }
         
-        for (int i = max; i<Integer.MAX_VALUE; i++) {
+        for (int i = 1; i<Integer.MAX_VALUE; i++) {
             int k = i;
             int sum = 0;
             int count = 0;
@@ -23,10 +21,6 @@ public class Main {
                 if (num[j] + sum > k) {
                     if (j==n-1) {
                         count += 2;
-                    }
-                    else if (num[j] == i) {
-                        count += 2;
-                        sum = 0;
                     }
                     else {
                         count++;
