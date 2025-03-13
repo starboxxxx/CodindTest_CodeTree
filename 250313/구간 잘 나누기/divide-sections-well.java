@@ -15,7 +15,7 @@ public class Main {
             max = Math.max(max, num[i]);
         }
         
-        for (int i = max+1; i<200; i++) {
+        for (int i = max+1; i<Integer.MAX_VALUE; i++) {
             int k = i;
             int sum = 0;
             int count = 0;
