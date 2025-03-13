@@ -15,7 +15,9 @@ public class Main {
                 if (j<= 10000) {
                     int cost = 0;
                     for (int z = 0; z<n; z++) {
-                        cost += Math.min(Math.abs(arr[z] - i), Math.abs(arr[z] - j));
+                        if (arr[z] > j || arr[z] < i){
+                            cost += Math.min(Math.abs(arr[z] - i), Math.abs(arr[z] - j));
+                        }
                     }
                     if (cost < min) {
                         min = cost;
