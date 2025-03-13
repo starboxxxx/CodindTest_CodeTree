@@ -44,7 +44,7 @@ public class Main {
                     }
                 }
             }
-            if (count == m) {
+            if (count <= m) {
                 System.out.print(k);
                 break;
             }
