@@ -23,15 +23,19 @@ public class Main {
             for (int j = 0; j<n; j++) {
                 if (num[j] + sum >= k) {
                     count++;
-                    if (num[j] > k) {
-                        isTrue = false;
-                        break;
+                    if (j == n-1 && num[j] + sum > k) {
+                        count++;
                     }
                     sum = num[j];
                 }
                 else {
-                    
-                    sum += num[j];
+
+                    if (j == n-1) {
+                        count++;
+                    }
+                    else {
+                        sum += num[j];
+                    }
                 }
             }
             if (count == m && isTrue) {
