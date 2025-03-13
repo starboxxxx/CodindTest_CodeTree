@@ -21,14 +21,18 @@ public class Main {
             int count = 0;
             boolean isTrue = true;
             for (int j = 0; j<n; j++) {
-                if (num[j] + sum >= k) {
-                    if (j == n-1 && num[j] + sum > k) {
-                        count = count + 2;
+                if (num[j] + sum > k) {
+                    if (j==n-1) {
+                        count += 2;
                     }
                     else {
                         count++;
                         sum = num[j];
                     }
+                }
+                else if (num[j] + sum == k) {
+                    count++;
+                    sum = 0;
                 }
                 else {
 
