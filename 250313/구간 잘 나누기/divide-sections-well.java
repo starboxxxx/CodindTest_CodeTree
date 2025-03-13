@@ -19,9 +19,14 @@ public class Main {
             int k = i;
             int sum = 0;
             int count = 0;
+            boolean isTrue = true;
             for (int j = 0; j<n; j++) {
                 if (num[j] + sum >= k) {
                     count++;
+                    if (num[j] > k) {
+                        isTrue = false;
+                        break;
+                    }
                     sum = num[j];
                 }
                 else {
@@ -29,7 +34,7 @@ public class Main {
                     sum += num[j];
                 }
             }
-            if (count == m) {
+            if (count == m && isTrue) {
                 System.out.print(k);
                 break;
             }
