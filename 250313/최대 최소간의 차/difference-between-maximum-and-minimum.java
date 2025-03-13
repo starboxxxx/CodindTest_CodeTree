@@ -11,7 +11,7 @@ public class Main {
         
         int min = Integer.MAX_VALUE;
         for (int i = 1; i<=9999; i++) {
-            for (int j = i+1; j<=i+k; j++) {
+            for (int j = i; j<=i+k; j++) {
                 if (j<= 10000) {
                     int cost = 0;
                     for (int z = 0; z<n; z++) {
