@@ -10,7 +10,7 @@ public class Main {
         }
         
         int min = Integer.MAX_VALUE;
-        for (int i = 0; i<=10000; i++) {
+        for (int i = 0; i<=10000-k; i++) {
             for (int j = i; j<=i+k; j++) {
                 int cost = 0;
                 for (int z = 0; z<n; z++) {
