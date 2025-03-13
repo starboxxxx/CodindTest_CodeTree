@@ -19,7 +19,6 @@ public class Main {
             int k = i;
             int sum = 0;
             int count = 0;
-            boolean isTrue = true;
             for (int j = 0; j<n; j++) {
                 if (num[j] + sum > k) {
                     if (j==n-1) {
@@ -44,7 +43,7 @@ public class Main {
                     }
                 }
             }
-            if (count == m && isTrue) {
+            if (count == m) {
                 System.out.print(k);
                 break;
             }
