@@ -9,11 +9,14 @@ public class Main {
 
         int[] num = new int[n];
 
+
+        int max = 0;
         for (int i = 0; i<n; i++) {
             num[i] = sc.nextInt();
+            max = Math.max(max, num[i]);
         }
         
-        for (int i = 1; i<Integer.MAX_VALUE; i++) {
+        for (int i = max-1; i<Integer.MAX_VALUE; i++) {
             int k = i;
             int sum = 0;
             int count = 0;
