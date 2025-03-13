@@ -11,7 +11,7 @@ public class Main {
         
         int min = Integer.MAX_VALUE;
         for (int i = 0; i<=10000-k; i++) {
-            for (int j = i; j<=i+k; j++) {
+            for (int j = i+1; j<=i+k; j++) {
                 int cost = 0;
                 for (int z = 0; z<n; z++) {
                     cost += Math.min(Math.abs(arr[z] - i), Math.abs(arr[z] - j));
