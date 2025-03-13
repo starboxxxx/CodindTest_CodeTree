@@ -15,8 +15,8 @@ public class Main {
         
         int min = Integer.MAX_VALUE;
         for (int i = L; i<=M; i++) {
-            for (int j = i; j<=i+k; j++) {
-                if (j<= 10000) {
+            int j = i + 2;
+            if (j<= 10000) {
                     int cost = 0;
                     for (int z = 0; z<n; z++) {
                         if (arr[z] > j || arr[z] < i){
@@ -26,7 +26,6 @@ public class Main {
                     if (cost < min) {
                         min = cost;
                     }
-                }
             }
         }
 
