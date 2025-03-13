@@ -22,15 +22,22 @@ public class Main {
             boolean isTrue = true;
             for (int j = 0; j<n; j++) {
                 if (num[j] + sum >= k) {
-                    count++;
                     if (j == n-1 && num[j] + sum > k) {
-                        count++;
+                        count = count + 2;
                     }
-                    sum = num[j];
+                    else {
+                        count++;
+                        sum = num[j];
+                    }
                 }
                 else {
 
-                    sum += num[j];
+                    if (j == n-1) {
+                        count++;
+                    }
+                    else {
+                        sum += num[j];
+                    }
                 }
             }
             if (count == m && isTrue) {
