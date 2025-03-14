@@ -17,14 +17,21 @@ public class Main {
             boolean isTrue = false;
             for (int j = 0; j<n; j++) {
                 if (j == i) {
-                    continue;
+                    if (j == n-1) {
+                        System.out.print("Yes");
+                        isTrue = true;
+                        break;
+                    }
+                    else {
+                        continue;
+                    }
                 }
 
                 if (x1[j] > end || x2[j] < start) {
                     break;
                 }
                 else {
-                    if (i == n-1) {
+                    if (j == n-1) {
                         System.out.print("Yes");
                         isTrue = true;
                         break;
