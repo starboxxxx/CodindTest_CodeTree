@@ -26,6 +26,10 @@ public class Main {
                     break;
                 }
 
+                if (people[j] == people[j-1] && message[j-1] == c) {
+                    break;
+                }
+
                 if (j == N-1) {
                     System.out.print(c + " ");
                 }
