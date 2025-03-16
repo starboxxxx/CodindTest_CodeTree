@@ -26,7 +26,7 @@ public class Main {
                     break;
                 }
 
-                if (people[j] == people[j-1] && message[j-1] == c) {
+                if (people[p-1] == people[p-2] && message[j-1] == c) {
                     break;
                 }
 
