@@ -30,7 +30,7 @@ public class Main {
                     break;
                 }
 
-                if (j == N-1) {
+                if (j == M-1) {
                     System.out.print(c + " ");
                 }
             }
