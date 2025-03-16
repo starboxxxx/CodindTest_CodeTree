@@ -18,6 +18,9 @@ public class Main {
         }
 
         for (char c = 'A'; c<'A' + N; c++) {
+            if (people[p-1] == 0) {
+                break;
+            }
             for (int j = p-1; j<N; j++) {
                 if (message[j] == c) {
                     break;
