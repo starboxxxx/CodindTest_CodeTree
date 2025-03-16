@@ -21,17 +21,28 @@ public class Main {
             if (people[p-1] == 0) {
                 break;
             }
-            for (int j = p-1; j<M; j++) {
-                if (message[j] == c) {
+            boolean isTrue = true;
+
+            for (int z = p-2; z>=0; z--) {
+                if (people[z] != people[p-1]) {
                     break;
                 }
 
-                if (people[p-1] == people[p-2] && message[j-1] == c) {
+                if (message[z] == c) {
+                    isTrue = false;
                     break;
                 }
+            }
 
-                if (j == M-1) {
-                    System.out.print(c + " ");
+            if (isTrue) {
+                for (int j = p-1; j<M; j++) {
+                    if (message[j] == c) {
+                        break;
+                    }
+
+                    if (j == M-1) {
+                        System.out.print(c + " ");
+                    }
                 }
             }
         }
