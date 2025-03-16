@@ -6,13 +6,13 @@ public class Main {
         int N = sc.nextInt();
         int[] birds = new int[11];
 
-        for (int i = 0; i<N; i++) {
+        for (int i = 0; i<11; i++) {
             birds[i] = -1;
         }
 
         int count = 0;
 
-        for (int i = 0; i < 11; i++) {
+        for (int i = 0; i < N; i++) {
             int a = sc.nextInt();
             int b = sc.nextInt();
 
