@@ -21,7 +21,7 @@ public class Main {
             if (people[p-1] == 0) {
                 break;
             }
-            for (int j = p-1; j<N; j++) {
+            for (int j = p-1; j<M; j++) {
                 if (message[j] == c) {
                     break;
                 }
