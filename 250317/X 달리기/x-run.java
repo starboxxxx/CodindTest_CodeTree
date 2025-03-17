@@ -3,18 +3,9 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int x = sc.nextInt();
-        
-        int distance = 0;
-        int time = 0;
 
-        if (x % 2 == 0) {
-            distance = 3;
-            time = 3;
-        }
-        else {
-            distance = 2;
-            time = 2;
-        }
+        int distance = 2;
+        int time = 2;
 
         for (int i = 10000; i>=0; i--) {
             int total = distance;
