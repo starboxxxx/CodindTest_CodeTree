@@ -7,8 +7,6 @@ public class Main {
         int distance = 2;
         int time = 2;
 
-        int min = Integer.MAX_VALUE;
-
         for (int i = 10000; i>=2; i--) {
             int total = distance;
             int t = time;
@@ -17,12 +15,14 @@ public class Main {
             }
 
             if (total + i+1 <= x) {
+                int left = x - (total + i + 1);
                 t += (i-1) * 2 + 1;
-                t += x - (total + i + 1);
-                min = Math.min(min, t);
+                t += 1;
+                time = t;
+                break;
             }
         }
 
-        System.out.print(min);
+        System.out.print(time);
     }
 }
