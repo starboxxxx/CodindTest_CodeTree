@@ -16,7 +16,7 @@ public class Main {
         }
 
         else {
-            if (Math.abs(arr[1] - arr[0]) == 1 || Math.abs(arr[1] - arr[0]) == 2 || Math.abs(arr[2] - arr[1]) == 1 || Math.abs(arr[2] - arr[1]) == 2) {
+            if (Math.abs(arr[1] - arr[0]) == 2 || Math.abs(arr[2] - arr[1]) == 2) {
                 System.out.print(1);
             }
             else {
