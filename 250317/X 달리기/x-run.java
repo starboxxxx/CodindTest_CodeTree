@@ -16,14 +16,15 @@ public class Main {
             time = 2;
         }
 
-        for (int i = 2; i<10000; i++) {
+        for (int i = 10000; i>=0; i--) {
             int total = distance;
             for (int j = 2; j<=i; j++) {
                 total += j * 2;
             }
 
-            if (total + i+1 == x) {
+            if (total + i+1 <= x) {
                 time += (i-1) * 2 + 1;
+                time += x - (total + i + 1);
                 break;
             }
         }
