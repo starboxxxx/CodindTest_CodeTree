@@ -14,6 +14,7 @@ public class Main {
             }
 
             if (total + i+1 <= x) {
+                System.out.print(i);
                 time += (i-1) * 2 + 1;
                 time += x - (total + i + 1);
                 break;
