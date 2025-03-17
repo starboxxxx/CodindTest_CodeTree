@@ -17,7 +17,14 @@ public class Main {
             if (total + i+1 <= x) {
                 int left = x - (total + i + 1);
                 t += (i-1) * 2 + 1;
-                t += 1;
+                while (true) {
+                    if (left <= i) {
+                        t += 1;
+                        break;
+                    }
+                    left -= i;
+                    t += 1;
+                }
                 time = t;
                 break;
             }
