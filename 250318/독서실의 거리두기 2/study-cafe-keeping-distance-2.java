@@ -69,7 +69,7 @@ public class Main {
             }
         }
 
-        seat[x+y / 2] = 1;
+        seat[(x+y) / 2] = 1;
 
 
         int min3 = Integer.MAX_VALUE;
