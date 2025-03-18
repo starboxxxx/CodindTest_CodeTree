@@ -36,7 +36,7 @@ public class Main {
 
             int min2 = Integer.MAX_VALUE;
 
-            for (int i = 0; i<n; i++) {
+            for (int i = 0; i<n-1; i++) {
                 if (seat[i] == 1) {
                     for (int j = i+1; j<n; j++) {
                         if (seat[j] == 1) {
@@ -75,6 +75,7 @@ public class Main {
         int min3 = Integer.MAX_VALUE;
 
         for (int i = 0; i<n; i++) {
+
             if (seat[i] == 1) {
                 for (int j = i+1; j<n; j++) {
                     if (seat[j] == 1) {
@@ -87,6 +88,8 @@ public class Main {
             }
         }
 
-        System.out.print(Math.max(max, min3));
+        int answer = Math.max(max, min3);
+
+        System.out.print(answer);
     }
 }
