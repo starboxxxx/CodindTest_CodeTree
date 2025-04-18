@@ -17,7 +17,7 @@ public class Main {
     public static int[][] destroy;
     public static int[][] visited;
     public static int total = 0;
-    public static int max = Integer.MIN_VALUE;
+    public static int max = 1;
     public static ArrayList<Point> nums = new ArrayList<>();
 
     public static int[] dx = new int[]{-1, 0, 1, 0};
