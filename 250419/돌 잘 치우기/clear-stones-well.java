@@ -82,8 +82,6 @@ public class Main {
             grid[tmp.get(i).x][tmp.get(i).y] = 0;
         }
 
-        int count = 1;
-
         for (int i = 0; i<n; i++) {
             for (int j = 0; j<n; j++) {
                 visited[i][j] = 0; 
@@ -95,33 +93,34 @@ public class Main {
         int y = 0;
         int newX;
         int newY;
-        for (int i = 0; i<k; i++) {
-            x = start[i][0];
-            y = start[i][1];
-        }
+        for (int a = 0; a<k; a++) {
+            int count = 1;
+            x = start[a][0];
+            y = start[a][1];
 
-        q.add(new Point(x, y));
-        visited[x][y] = 1;
+            q.add(new Point(x, y));
+            visited[x][y] = 1;
 
-        while(!q.isEmpty()) {
+            while(!q.isEmpty()) {
 
-            Point point = q.poll();
-            x = point.x;
-            y = point.y;
+                Point point = q.poll();
+                x = point.x;
+                y = point.y;
 
-            for (int i = 0; i<4; i++) {
-                newX = x + dx[i];
-                newY = y + dy[i];
+                for (int i = 0; i<4; i++) {
+                    newX = x + dx[i];
+                    newY = y + dy[i];
 
-                if (canGo(newX, newY)) {
-                    visited[newX][newY] = 1;
-                    q.add(new Point(newX, newY));
-                    count++;
+                    if (canGo(newX, newY)) {
+                        visited[newX][newY] = 1;
+                        q.add(new Point(newX, newY));
+                        count++;
+                    }
                 }
             }
-        }
 
-        max = Math.max(max, count);
+            max = Math.max(max, count);
+        }
         for (int i = 0; i<m; i++) {
             grid[tmp.get(i).x][tmp.get(i).y] = 1;
         }
