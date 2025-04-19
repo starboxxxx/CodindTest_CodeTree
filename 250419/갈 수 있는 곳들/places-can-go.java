@@ -44,9 +44,12 @@ public class Main {
 
         bfs();
 
+        int x;
+        int y;
+
         for (int a = 0; a<k; a++) {
-            int x = starts[a][0]-1;
-            int y = starts[a][1]-1;
+            x = starts[a][0]-1;
+            y = starts[a][1]-1;
 
             q.add(new Point(x, y));
             visited[x][y] = 1;
@@ -73,17 +76,21 @@ public class Main {
 
 
     public static void bfs() {
+        int x;
+        int y;
 
+        int newX;
+        int newY;
         while (!q.isEmpty()) {
             
             Point point = q.poll();
 
-            int x = point.x;
-            int y = point.y;
+            x = point.x;
+            y = point.y;
 
             for (int i = 0; i<4; i++) {
-                int newX = x + dx[i];
-                int newY = y + dy[i];
+                newX = x + dx[i];
+                newY = y + dy[i];
 
                 if (canGo(newX, newY)) {
                     visited[newX][newY] = 1;
