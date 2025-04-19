@@ -93,11 +93,14 @@ public class Main {
         int y = 0;
         int newX;
         int newY;
-        int count = 1;
+        int count = 0;
         for (int a = 0; a<k; a++) {
             x = start[a][0];
             y = start[a][1];
 
+            if (visited[x][y] == 0) {
+                count++;
+            }
             q.add(new Point(x, y));
             visited[x][y] = 1;
 
