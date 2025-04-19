@@ -93,8 +93,8 @@ public class Main {
         int y = 0;
         int newX;
         int newY;
+        int count = 1;
         for (int a = 0; a<k; a++) {
-            int count = 1;
             x = start[a][0];
             y = start[a][1];
 
@@ -118,9 +118,8 @@ public class Main {
                     }
                 }
             }
-
-            max = Math.max(max, count);
         }
+        max = Math.max(max, count);
         for (int i = 0; i<m; i++) {
             grid[tmp.get(i).x][tmp.get(i).y] = 1;
         }
