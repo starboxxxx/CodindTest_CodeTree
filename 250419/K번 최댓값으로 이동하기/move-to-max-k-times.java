@@ -79,6 +79,8 @@ public class Main {
     public static int findMax(Point point) {
 
         int max = Integer.MIN_VALUE;
+        int a = 0;
+        int b = 0;
         int newX;
         int newY;
         Point p;
@@ -99,7 +101,23 @@ public class Main {
                 && grid[newX][newY] < grid[point.x][point.y]
                 && visited[newX][newY] == 0) {
                     tmp.add(new Point(newX, newY));
-                    max = Math.max(max, grid[newX][newY]);
+                    visited[newX][newY] = 1;
+
+                    if (grid[newX][newY] > max) {
+                        max = grid[newX][newY];
+                        a = newX;
+                        b = newY;
+                    }
+                    else if (grid[newX][newY] == max) {
+                        if (newX < a) {
+                            a = newX;
+                            b = newY;
+                        }
+                        else if (newX == a && newY < b) {
+                            a = newX;
+                            b = newY;
+                        }
+                    }
                     visited[newX][newY] = 1;
                 }
             }
