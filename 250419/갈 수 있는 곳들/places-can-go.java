@@ -53,19 +53,12 @@ public class Main {
 
             q.add(new Point(x, y));
             visited[x][y] = 1;
-            result[x][y] = 1;
             bfs();
-
-            for (int i = 0; i<n; i++) {
-                for (int j = 0; j<n; j++) {
-                    visited[i][j] = 0;
-                }
-            }
         };
 
         for (int i = 0; i<n; i++) {
             for (int j = 0; j<n; j++) {
-                if (result[i][j] == 1) {
+                if (visited[i][j] == 1) {
                     total++;
                 }
             }
@@ -94,7 +87,6 @@ public class Main {
 
                 if (canGo(newX, newY)) {
                     visited[newX][newY] = 1;
-                    result[newX][newY] = 1;
                     q.add(new Point(newX, newY));
                 }
             }
