@@ -51,7 +51,7 @@ public class Main {
             }
 
             else {
-                point = findPosition(findMax(point));
+                point = findMax(point);
                 count++;
             }
         }
@@ -76,7 +76,7 @@ public class Main {
         return false;
     }
 
-    public static int findMax(Point point) {
+    public static Point findMax(Point point) {
 
         int max = Integer.MIN_VALUE;
         int a = 0;
@@ -123,7 +123,7 @@ public class Main {
             }
         }
 
-        return max;
+        return new Point(a, b);
     }
 
     public static Point findPosition(int num) {
