@@ -37,26 +37,29 @@ public class Main {
         for (int i = 0; i<n; i++) {
             for (int j = 0; j<m; j++) {
                 if (grid[i][j] == 0) {
-                    boolean isTrue = false;
                     for (int z = 0; z<4; z++) {
-                        int newI = i + dx[z];
-                        int newJ = j + dy[z];
-
-                        if (newI >= 0 && newI < n && newJ >= 0 && newJ < m) {
-                            if (grid[newI][newJ] == 0) {
-                                isTrue = true;
+                        int newI = i;
+                        int newJ = j;
+                        boolean isTrue = true;
+                        while (newI >= 0 && newI < n && newJ >= 0 && newJ < m) {
+                            if (grid[newI][newJ] == 1) {
+                                isTrue = false;
                                 break;
                             }
+                            newI += dx[z];
+                            newJ += dy[z];
                         }
-                    }
-                    if (isTrue) {
-                        q.add(new Point(i, j));
-                    }
-                } 
+                        if (isTrue) {
+                            q.add(new Point(i, j));
+                            break;
+                        }
+                    } 
+                }
             }
         }
-        bfs();
 
+        bfs();
+        
         while (!tmp.isEmpty()) {
             time++;
             count = tmp.size();
