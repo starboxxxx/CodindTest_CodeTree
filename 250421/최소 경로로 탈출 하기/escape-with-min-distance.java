@@ -40,7 +40,12 @@ public class Main {
         visited[0][0] = 1;
         bfs();
 
-        System.out.print(distance[n-1][m-1]);
+        if (distance[n-1][m-1] == 0) {
+            System.out.print(-1);
+        }
+        else {
+            System.out.print(distance[n-1][m-1]);
+        }
     }   
 
     public static void bfs() {
