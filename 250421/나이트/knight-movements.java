@@ -38,7 +38,7 @@ public class Main {
         q.add(new Point(r1, c1));
         bfs();
 
-        int result = (distance[r2][c2] == 0?-1:distance[r2][c2]);
+        int result = (visited[r2][c2] == 0 && distance[r2][c2] == 0?-1:distance[r2][c2]);
         System.out.print(result);
     }
 
