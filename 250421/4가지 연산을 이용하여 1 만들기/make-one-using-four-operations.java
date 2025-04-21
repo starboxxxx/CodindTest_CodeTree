@@ -13,7 +13,7 @@ class Num {
 public class Main {
     public static int n;
     public static Queue<Num> q = new LinkedList<>();
-
+    public static int[] visited = new int[1000000];
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         n = sc.nextInt();
@@ -25,25 +25,38 @@ public class Main {
 
     public static int bfs() {
         Num num = new Num(0, 0);
+        int currentNum=0;
+        int count = 0;
         while(!q.isEmpty()) {
             num = q.poll();
-            int currentNum = num.currentNum;
-            int count = num.count;
+            currentNum = num.currentNum;
+            count = num.count;
 
             if (currentNum == 1) {
                 break;
             }
 
-            q.add(new Num(currentNum+1, count+1));
-            q.add(new Num(currentNum-1, count+1));
-            if (currentNum % 2 == 0) {
-                q.add(new Num(currentNum / 2, count+1));
+            if (visited[currentNum + 1] == 0) {
+                q.add(new Num(currentNum+1, count+1));
+                visited[currentNum+1] = 1;
             }
-            if (currentNum % 3 == 0) {
+
+            if (visited[currentNum - 1] == 0) {
+                q.add(new Num(currentNum-1, count+1));
+                visited[currentNum-1] = 1;
+            }
+
+            if (currentNum % 2 == 0 && visited[currentNum/2] == 0) {
+                q.add(new Num(currentNum / 2, count+1));
+                visited[currentNum/2] = 1;
+            }
+
+            if (currentNum % 3 == 0 && visited[currentNum/3] == 0) {
                 q.add(new Num(currentNum / 3, count+1));
+                visited[currentNum/3] = 1;
             }
         }
 
-        return num.count;
+        return count;
     }
 }
