@@ -13,7 +13,7 @@ class Num {
 public class Main {
     public static int n;
     public static Queue<Num> q = new LinkedList<>();
-    public static int[] visited = new int[1000000];
+    public static int[] visited = new int[10000000];
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         n = sc.nextInt();
