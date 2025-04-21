@@ -11,7 +11,12 @@ public class Main {
         num = new int[n];
         num[0] = 1;
         num[1] = 1;
-        System.out.print(dp(n-1));
+        if (n == 1 || n == 2) {
+            System.out.print(1);
+        }
+        else {
+            System.out.print(dp(n-1));
+        }
     }
 
     public static int dp(int k) {
