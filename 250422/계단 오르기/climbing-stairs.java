@@ -25,6 +25,10 @@ public class Main {
             count[n] = 1;
         }
 
+        else if (n <= 1) {
+            return 0;
+        }
+
         else {
             count[n] = dp(n-2) + dp(n-3);
         }
