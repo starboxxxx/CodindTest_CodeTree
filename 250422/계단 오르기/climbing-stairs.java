@@ -17,16 +17,16 @@ public class Main {
 
     public static int dp(int n) {
 
+        if (n <= 1) {
+            return 0;
+        }
+
         if (count[n] != -1) {
             return count[n];
         }
 
         if (n == 2 || n==3) {
             count[n] = 1;
-        }
-
-        else if (n <= 1) {
-            count[n] = 0;
         }
 
         else {
