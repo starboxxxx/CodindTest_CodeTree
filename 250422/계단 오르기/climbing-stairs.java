@@ -8,9 +8,13 @@ public class Main {
         int n = sc.nextInt();
         count = new int[n+1];
 
-        for (int i = 0; i<=n; i++) {
+        for (int i = 2; i<=n; i++) {
             count[i] = -1;
         }
+
+        count[0] = 0;
+        count[1] = 0;
+
 
         System.out.print(dp(n));
     }
@@ -33,6 +37,6 @@ public class Main {
             count[n] = dp(n-2) + dp(n-3);
         }
 
-        return count[n];
+        return count[n] % 10007;
     }
 }
