@@ -21,7 +21,7 @@ public class Main {
             return count[n];
         }
 
-        if (n == 2 || n == 3) {
+        if (n <= 3) {
             count[n] = 1;
         }
 
