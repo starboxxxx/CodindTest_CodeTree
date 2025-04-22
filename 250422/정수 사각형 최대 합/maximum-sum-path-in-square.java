@@ -24,6 +24,7 @@ public class Main {
     public static void initialize() {
         for (int i = 1; i<n; i++) {
             matrix[i][0] += matrix[i-1][0];
+            matrix[0][i] += matrix[0][i-1];
         }
     }
 
