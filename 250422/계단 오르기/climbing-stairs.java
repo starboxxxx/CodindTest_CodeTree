@@ -26,7 +26,7 @@ public class Main {
         }
 
         else if (n <= 1) {
-            return 0;
+            count[n] = 0;
         }
 
         else {
