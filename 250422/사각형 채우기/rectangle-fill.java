@@ -15,7 +15,7 @@ public class Main {
             count[i] = count[i-1] + count[i-2];
         }
 
-        System.out.print(count[n]);
+        System.out.print(count[n] % 10007);
 
         
     }
