@@ -40,10 +40,11 @@ public class Main {
                     visited[i][j] = 1;
                     q.add(new Point(i, j, 1));
                     bfs();
-                    if (max == 250000) {
-                        isMax = true;
-                        break;
-                    }
+                }
+
+                if (max == 250000) {
+                    isMax = true;
+                    break;
                 }
             }
             if (isMax) {
@@ -57,6 +58,7 @@ public class Main {
 
 
     public static void bfs() {
+        boolean isMax = false;
         while (!q.isEmpty()) {
             Point point = q.poll();
             int x = point.x;
@@ -68,6 +70,10 @@ public class Main {
                 int newY = y + dy[i];
 
                 if (canGo(x, y, newX, newY, count+1)) {
+                    if (count + 1 == 250000) {
+                        isMax = true;
+                        break;
+                    }
                     isEnd = false;
                     visited[newX][newY] = count+1;
                     q.add(new Point(newX, newY, count+1));
@@ -75,6 +81,10 @@ public class Main {
             }
             if (isEnd) {
                 max = Math.max(max, count);
+            }
+            if (isMax) {
+                max = 250000;
+                break;
             }
         } 
     }
