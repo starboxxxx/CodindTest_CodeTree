@@ -38,17 +38,14 @@ public class Main {
             for (int j = 0; j<n; j++) {
                 if (visited[i][j] == 0) {
                     visited[i][j] = 1;
-                    q.add(new Point(i, j, 1));
-                    bfs();
-                }
-
-                if (max == 250000) {
-                    isMax = true;
-                    break;
+                    dfs(i, j, 1);
                 }
             }
-            if (isMax) {
-                break;
+        }
+
+        for (int i = 0; i<n; i++) {
+            for (int j = 0; j<n; j++) {
+                max = Math.max(max, visited[i][j]);
             }
         }
 
@@ -57,36 +54,16 @@ public class Main {
     }
 
 
-    public static void bfs() {
-        boolean isMax = false;
-        while (!q.isEmpty()) {
-            Point point = q.poll();
-            int x = point.x;
-            int y = point.y;
-            int count = point.count;
-            boolean isEnd = true;
-            for (int i = 0; i<4; i++) {
-                int newX = x + dx[i];
-                int newY = y + dy[i];
+    public static void dfs(int x, int y, int count) {
+        for (int i = 0; i<4; i++) {
+            int newX = x + dx[i];
+            int newY = y + dy[i];
 
-                if (canGo(x, y, newX, newY, count+1)) {
-                    if (count + 1 == 250000) {
-                        isMax = true;
-                        break;
-                    }
-                    isEnd = false;
-                    visited[newX][newY] = count+1;
-                    q.add(new Point(newX, newY, count+1));
-                }
+            if (canGo(x, y, newX, newY, count+1)) {
+                visited[newX][newY] = count+1;
+                dfs(newX, newY, count+1);
             }
-            if (isEnd) {
-                max = Math.max(max, count);
-            }
-            if (isMax) {
-                max = 250000;
-                break;
-            }
-        } 
+        }
     }
 
     public static boolean canGo (int x, int y, int newX, int newY, int num) {
