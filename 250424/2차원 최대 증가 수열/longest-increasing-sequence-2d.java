@@ -39,7 +39,7 @@ public class Main {
                     }
                     int x = i + a;
                     for (int b = 1; b<m; b++) {
-                        if (j + b >= n) {
+                        if (j + b >= m) {
                             break;
                         }
                         int y = j + b;
