@@ -19,12 +19,14 @@ public class Main {
     public static Queue<Point> q = new LinkedList<>();
     public static int[] dx = new int[]{-1, 0, 1, 0};
     public static int[] dy = new int[]{0, 1, 0, -1};
+    public static int[][] visited;
     public static int max = 0;
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         n = sc.nextInt();
         grid = new int[n][n];
+        visited = new int[n][n];
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 grid[i][j] = sc.nextInt();
@@ -33,8 +35,11 @@ public class Main {
         
         for (int i = 0; i<n; i++) {
             for (int j = 0; j<n; j++) {
-                q.add(new Point(i, j, 1));
-                bfs();
+                if (visited[i][j] == 0) {
+                    visited[i][j] = 1;
+                    q.add(new Point(i, j, 1));
+                    bfs();
+                }
             }
         }
 
@@ -54,8 +59,9 @@ public class Main {
                 int newX = x + dx[i];
                 int newY = y + dy[i];
 
-                if (canGo(newX, newY, grid[x][y])) {
+                if (canGo(x, y, newX, newY, count+1)) {
                     isEnd = false;
+                    visited[newX][newY] = count+1;
                     q.add(new Point(newX, newY, count+1));
                 }
             }
@@ -65,9 +71,9 @@ public class Main {
         } 
     }
 
-    public static boolean canGo (int x, int y, int num) {
-        if (x >=0 && x < n && y >= 0 && y < n
-        && grid[x][y] > num) {
+    public static boolean canGo (int x, int y, int newX, int newY, int num) {
+        if (newX >=0 && newX < n && newY >= 0 && newY < n
+        && grid[newX][newY] > grid[x][y] && num > visited[newX][newY]) {
             return true;
         }
         return false;
