@@ -1,11 +1,7 @@
 import java.util.*;
 
 class Segment implements Comparable<Segment> {
-    int x1;
-    int x2;
-
-    public Segment() {
-    }
+    int x1,x2;
 
     public Segment(int x1, int x2) {
         this.x1 = x1;
