@@ -1,48 +1,70 @@
-import java.util.Scanner;
+import java.util.*;
+
+class Segment implements Comparable<Segment> {
+    int x1;
+    int x2;
+
+    public Segment() {
+    }
+
+    public Segment(int x1, int x2) {
+        this.x1 = x1;
+        this.x2 = x2;
+    }
+
+    @Override
+    public int compareTo(Segment s) {
+        return this.x1 - s.x1;
+    }
+}
+
+
 public class Main {
 
     public static int n;
-    public static int[][] segments;
-    public static int[] count;
+    public static Segment[] segments;
+    public static int[] dp;
 
     public static void main(String[] args) {
+
         Scanner sc = new Scanner(System.in);
         n = sc.nextInt();
-        segments = new int[n][2];
-        count = new int[n];
+        segments = new Segment[n];
+        dp = new int[n];
+
+
         for (int i = 0; i < n; i++) {
-            segments[i][0] = sc.nextInt();
-            segments[i][1] = sc.nextInt();
-            count[i] = 1;
+            int x1 = sc.nextInt();
+            int x2 = sc.nextInt();
+
+            segments[i] = new Segment(x1, x2);
         }
 
-        System.out.print(dp());
+        Arrays.sort(segments, 0, n);
 
-    }
+        for (int i = 0; i<n; i++) {
 
-    public static int dp() {
+            dp[i] = 1;
+
+            for (int j = 0; j<i; j++) {
+                int x1I = segments[i].x1;
+                int x2J = segments[j].x2;
+
+                if (x2J < x1I) {
+                    dp[i] = Math.max(dp[i], dp[j] + 1);
+                }
+            }
+        }
 
         int max = 0;
 
-        for (int i = 1; i<n; i++) {
-            int count = 1;
-            int start = segments[i][0];
-            int end = segments[i][1];
-
-            for (int j = 0; j<i; j++) {
-                int s = segments[j][0];
-                int e = segments[j][1];
-
-                if (s > end || e < start) {
-                    count++;
-                }
-            }
-
-            if (count > max) {
-                max = count;
+        for (int i = 0; i<n; i++) {
+            if (dp[i] > max) {
+                max = dp[i];
             }
         }
 
-        return max;
+        System.out.print(max);
+
     }
 }
