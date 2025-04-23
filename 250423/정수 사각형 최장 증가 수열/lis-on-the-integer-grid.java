@@ -33,13 +33,21 @@ public class Main {
             }
         }
         
+        boolean isMax = false;
         for (int i = 0; i<n; i++) {
             for (int j = 0; j<n; j++) {
                 if (visited[i][j] == 0) {
                     visited[i][j] = 1;
                     q.add(new Point(i, j, 1));
                     bfs();
+                    if (max == 250000) {
+                        isMax = true;
+                        break;
+                    }
                 }
+            }
+            if (isMax) {
+                break;
             }
         }
 
