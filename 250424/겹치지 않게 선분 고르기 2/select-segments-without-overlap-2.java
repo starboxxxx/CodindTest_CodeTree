@@ -22,7 +22,10 @@ public class Main {
 
     public static int dp() {
 
+        int max = 0;
+
         for (int i = 1; i<n; i++) {
+            int count = 1;
             int start = segments[i][0];
             int end = segments[i][1];
 
@@ -31,14 +34,13 @@ public class Main {
                 int e = segments[j][1];
 
                 if (s > end || e < start) {
-                    count[i] = Math.max(count[i], count[j] + 1);
+                    count++;
                 }
             }
-        }
 
-        int max = 0;
-        for (int i = 0; i<n; i++) {
-            max = Math.max(max, count[i]);
+            if (count > max) {
+                max = count;
+            }
         }
 
         return max;
