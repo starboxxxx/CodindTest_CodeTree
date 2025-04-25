@@ -23,7 +23,6 @@ public class Main {
     public static int dp() {
 
         for (int k = 0; k<n; k++) {
-            int num = arr[k];
             
             for (int x = 0; x<n; x++) {
                 count[x] = 1;
@@ -31,7 +30,7 @@ public class Main {
 
             for (int i = 1; i<n; i++) {
                 for (int j = 0; j<i; j++) {
-                    if (i >= k) {
+                    if (i > k) {
                         if (arr[j] > arr[i]) {
                             count[i] = Math.max(count[i], count[j] + 1);
                         }
