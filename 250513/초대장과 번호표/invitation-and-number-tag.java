@@ -5,7 +5,7 @@ public class Main {
         int n = sc.nextInt();
         int g = sc.nextInt();
 
-        ArrayList[] group = new ArrayList[g]; 
+        ArrayList<Integer>[] group = new ArrayList[g]; 
         for (int i = 0; i<g; i++) {
             group[i] = new ArrayList<>();
         }
@@ -33,11 +33,11 @@ public class Main {
                 int v = 0;
                 int num = 0;
                 for (int j = 0; j<group[i].size(); j++) {
-                    if (set.contains((int)group[i].get(j))) {
+                    if (set.contains(group[i].get(j))) {
                         v++;
                     }
                     else {
-                        num = (int)group[i].get(j);
+                        num = group[i].get(j);
                     }
                 }
                 if (v == group[i].size()-1) {
