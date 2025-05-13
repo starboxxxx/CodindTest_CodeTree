@@ -8,6 +8,11 @@ public class Main {
         int count = 0;
         boolean can = true;
         for (int i = 0; i < n; i++) {
+
+            if (can == false) {
+                break;
+            }
+
             int chair = sc.nextInt();
             
             if (set.contains(chair)) {
@@ -20,10 +25,6 @@ public class Main {
                     else if (j == 1) {
                         can = false;
                     }
-                }
-
-                if (can == false) {
-                    break;
                 }
 
             }
