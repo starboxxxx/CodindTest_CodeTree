@@ -15,22 +15,17 @@ public class Main {
 
             int chair = sc.nextInt();
             
-            if (set.contains(chair)) {
-                for (int j =chair-1; j>=1; j--) {
-                    if (!set.contains(j)) {
-                        set.add(j);
-                        count++;
-                        break;
-                    }
-                    else if (j == 1) {
-                        can = false;
-                    }
+            for (int j = chair; j>=1; j--) {
+                if (!set.contains(j)) {
+                    count++;
+                    set.add(j);
+                    break;
                 }
 
-            }
-            else {
-                set.add(chair);
-                count++;
+                if (j == 1) {
+                    can = false;
+                    break;
+                }
             }
         }
         System.out.print(count);
