@@ -5,42 +5,23 @@ public class Main {
         int n = sc.nextInt();
         int m = sc.nextInt();
         TreeSet<Integer> set = new TreeSet<>();
+        for (int i = 1; i<=m; i++) {
+            set.add(i);
+        }
+
         int count = 0;
-        boolean can = true;
         for (int i = 0; i < n; i++) {
 
             int chair = sc.nextInt();
             
-            if (!set.contains(chair)) {
-                set.add(chair);
-                count++;
+            if (set.floor(chair) == null) {
+                break;
             }
-            else {
 
-                int num = chair;
-                
-                while (true) {
-                    
-                    if (set.lower(num) == null) {
-                        can = false;
-                        break;
-                    }
+            int num = set.floor(chair);
 
-                    int k = set.lower(num);
-
-                    if (k != num-1) {
-                        count++;
-                        set.add(num-1);
-                        break;
-                    }
-
-                    num = k;
-                }
-
-                if (can == false) {
-                    break;
-                }
-            }
+            set.remove(num);
+            count++;
         }
         System.out.print(count);
     }
