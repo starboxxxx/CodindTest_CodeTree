@@ -9,10 +9,6 @@ public class Main {
         boolean can = true;
         for (int i = 0; i < n; i++) {
 
-            if (can == false) {
-                break;
-            }
-
             int chair = sc.nextInt();
             
             if (!set.contains(chair)) {
@@ -38,6 +34,10 @@ public class Main {
 
                     num = set.lower(num);
                 }
+            }
+
+            if (can == false) {
+                break;
             }
         }
         System.out.print(count);
