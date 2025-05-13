@@ -20,9 +20,6 @@ public class Main {
                 count++;
             }
             else {
-                if (set.lower(chair) == null) {
-                    break;
-                }
 
                 int num = chair;
                 
