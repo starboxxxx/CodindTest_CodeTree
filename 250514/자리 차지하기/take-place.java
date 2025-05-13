@@ -32,7 +32,6 @@ public class Main {
                 count++;
             }
         }
-        
         System.out.print(count);
     }
 }
