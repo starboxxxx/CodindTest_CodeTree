@@ -15,16 +15,31 @@ public class Main {
 
             int chair = sc.nextInt();
             
-            for (int j = chair; j>=1; j--) {
-                if (!set.contains(j)) {
-                    count++;
-                    set.add(j);
+            if (!set.contains(chair)) {
+                set.add(chair);
+                count++;
+            }
+            else {
+                if (set.lower(chair) == null) {
                     break;
                 }
 
-                if (j == 1) {
-                    can = false;
-                    break;
+                int num = chair;
+                
+                while (true) {
+                    
+                    if (set.lower(num) == null) {
+                        can = false;
+                        break;
+                    }
+
+                    if (set.lower(num) != num-1) {
+                        count++;
+                        set.add(num-1);
+                        break;
+                    }
+
+                    num = set.lower(num);
                 }
             }
         }
