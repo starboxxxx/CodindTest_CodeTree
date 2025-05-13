@@ -26,18 +26,20 @@ public class Main {
                         break;
                     }
 
-                    if (set.lower(num) != num-1) {
+                    int k = set.lower(num);
+
+                    if (k != num-1) {
                         count++;
                         set.add(num-1);
                         break;
                     }
 
-                    num = set.lower(num);
+                    num = k;
                 }
-            }
 
-            if (can == false) {
-                break;
+                if (can == false) {
+                    break;
+                }
             }
         }
         System.out.print(count);
