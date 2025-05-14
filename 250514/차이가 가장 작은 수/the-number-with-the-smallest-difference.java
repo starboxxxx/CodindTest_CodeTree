@@ -28,7 +28,12 @@ public class Main {
                 answer = Math.min(answer, x-set.floor(x-m));
             }
         }
-
-        System.out.print(answer);
+        
+        if (answer == Integer.MAX_VALUE) {
+            System.out.print(-1);
+        }
+        else {
+            System.out.print(answer);
+        }
     }
 }
