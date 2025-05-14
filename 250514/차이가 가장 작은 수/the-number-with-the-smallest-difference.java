@@ -22,6 +22,11 @@ public class Main {
             }
         }
 
-        System.out.print(set.ceiling(m));
+        if (set.ceiling(m) == null) {
+            System.out.print(-1);
+        }
+        else {
+            System.out.print(set.ceiling(m));
+        }
     }
 }
