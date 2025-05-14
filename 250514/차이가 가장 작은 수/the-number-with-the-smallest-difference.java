@@ -7,26 +7,28 @@ public class Main {
         int[] arr = new int[n];
 
         TreeSet<Integer> set = new TreeSet<>();
+
         for (int i = 0; i < n; i++) {
             arr[i] = sc.nextInt();
+            set.add(arr[i]);
         }
+
+        int answer = Integer.MAX_VALUE;
         
         for (int i = 0; i<n; i++) {
-            int num = arr[i];
-            for (int j = i+1; j<n; j++) {
-                int k = arr[j];
+            int x = arr[i];
 
-                if (!set.contains(Math.abs(num-k))) {
-                    set.add(Math.abs(num-k));
-                }
+            //r-x >= m
+            if (set.ceiling(m+x) != null) {
+                answer = Math.min(answer, set.ceiling(m+x)-x);
+            }
+
+            //x - r >=m
+            if (set.floor(x-m) != null) {
+                answer = Math.min(answer, x-set.floor(x-m));
             }
         }
 
-        if (set.ceiling(m) == null) {
-            System.out.print(-1);
-        }
-        else {
-            System.out.print(set.ceiling(m));
-        }
+        System.out.print(answer);
     }
 }
