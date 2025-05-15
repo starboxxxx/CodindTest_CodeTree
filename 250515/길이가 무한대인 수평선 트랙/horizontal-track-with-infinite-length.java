@@ -34,40 +34,23 @@ public class Main {
 
         while (true) {
 
+            if (list.lower(people) != null ) {
+                People before = list.lower(people);
+                if (before.start * before.speed * t >= people.start + people.speed * t) {
+                    list.remove(before);
+                }
+            }
+
             if (list.higher(people) == null) {
                 break;
             }
 
-            People people1 = list.higher(people);
-            People people2 = list.lower(people);
-
-            int total = people.start + people.speed * t;
-            int total1 = people1.start + people1.speed * t;
-            int total2 = people2.start + people2.speed * t;
-
-            if (total >= total1 && total <= total2) {
-                int t1 = (people1.start - people.start) / (people.speed - people1.speed);
-                int t2 = (people.start - people2.start) / (people2.speed - people.speed);
-            
-                if (t1 < t2) {
-                    list.remove(people);
-                }
-                else if (t1 > t2) {
-                    list.remove(people2);
-                }
-                else {
-                    list.remove(people);
-                    list.remove(people2);
-                }
-            }
-            else if (total >= total1) {
+            People after = list.higher(people);
+            if (people.start + people.speed * t >= after.start + after.speed * t) {
                 list.remove(people);
             }
-            else if (total <= total2){
-                list.remove(people2);
-            }
 
-            people = people1;
+            people = list.higher(people);
         }
 
 
