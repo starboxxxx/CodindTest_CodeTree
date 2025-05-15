@@ -37,7 +37,12 @@ public class Main {
             if (list.lower(people) != null ) {
                 People before = list.lower(people);
                 if (before.start * before.speed * t >= people.start + people.speed * t) {
-                    list.remove(before);
+                    if (before.speed >= people.speed) {
+                        list.remove(before);
+                    }
+                    else {
+                        list.remove(people);
+                    }
                 }
             }
 
