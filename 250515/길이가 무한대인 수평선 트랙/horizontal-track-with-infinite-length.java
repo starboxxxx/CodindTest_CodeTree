@@ -1,67 +1,30 @@
 import java.util.*;
-
-class People implements Comparable<People> {
-    int start;
-    int speed;
-
-    public People (int start, int speed) {
-        this.start = start;
-        this.speed = speed;
-    }
-
-    @Override
-    public int compareTo(People p) {
-        return this.start - p.start;
-    }
-}
+import java.io.*;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int t = sc.nextInt();
+    public static TreeSet<Long> posSet = new TreeSet<>();
+    public static void main(String[] args) throws IOException{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+        int N = Integer.parseInt(st.nextToken());
+        int T = Integer.parseInt(st.nextToken());
 
-        TreeSet<People> list = new TreeSet<>();
-        
-        for (int i = 0; i < n; i++) {
-            int start = sc.nextInt();
-            int speed = sc.nextInt();
-            list.add(new People(start, speed));
-        }
+        for(int i = 0 ; i < N ; i++){
+            st = new StringTokenizer(br.readLine(), " ");
+            int start = Integer.parseInt(st.nextToken());
+            int speed = Integer.parseInt(st.nextToken());
+            long end = (long)T * speed + start;
 
-        People people = list.first();
-
-        while (true) {
-
-            if (list.higher(people) == null) {
-                if (list.lower(people) != null ) {
-                    People before = list.lower(people);
-                    if (before.start * (before.speed * t) >= people.start + (people.speed * t)) {
-                        list.remove(before);
-                    }
+            if(posSet.ceiling(end) == null){
+                posSet.add(end);
+            }
+            else{
+                while(posSet.ceiling(end) != null){
+                    posSet.remove(posSet.ceiling(end));
                 }
-                break;
+                posSet.add(end);
             }
-
-            //다음사람과 겹치는지 확인
-            People after = list.higher(people);
-            if (people.start + (people.speed * t) >= after.start + (after.speed * t)) {
-                list.remove(people);
-            }
-
-            if (list.lower(people) != null ) {
-                People before = list.lower(people);
-                if (before.start * (before.speed * t) >= people.start + (people.speed * t)) {
-                    list.remove(before);
-                }
-            }
-
-            people = after;
         }
-
-
-        System.out.print(list.size());
-
-
+        System.out.print(posSet.size());
     }
 }
