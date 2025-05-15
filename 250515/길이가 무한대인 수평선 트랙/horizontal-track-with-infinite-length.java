@@ -33,15 +33,13 @@ public class Main {
 
         while (true) {
 
-            //전 사람과 겹치는지 확인
-            if (list.lower(people) != null ) {
-                People before = list.lower(people);
-                if (before.start * (before.speed * t) >= people.start + (people.speed * t)) {
-                    list.remove(before);
-                }
-            }
-
             if (list.higher(people) == null) {
+                if (list.lower(people) != null ) {
+                    People before = list.lower(people);
+                    if (before.start * (before.speed * t) >= people.start + (people.speed * t)) {
+                        list.remove(before);
+                    }
+                }
                 break;
             }
 
@@ -49,6 +47,13 @@ public class Main {
             People after = list.higher(people);
             if (people.start + (people.speed * t) >= after.start + (after.speed * t)) {
                 list.remove(people);
+            }
+
+            if (list.lower(people) != null ) {
+                People before = list.lower(people);
+                if (before.start * (before.speed * t) >= people.start + (people.speed * t)) {
+                    list.remove(before);
+                }
             }
 
             people = after;
