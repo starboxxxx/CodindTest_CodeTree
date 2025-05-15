@@ -50,7 +50,7 @@ public class Main {
                 list.remove(people);
             }
 
-            people = list.higher(people);
+            people = after;
         }
 
 
