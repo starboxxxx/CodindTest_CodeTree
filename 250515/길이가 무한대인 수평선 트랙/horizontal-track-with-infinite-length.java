@@ -21,37 +21,58 @@ public class Main {
         int n = sc.nextInt();
         int t = sc.nextInt();
 
-        ArrayList<Integer> list = new ArrayList<>();
+        TreeSet<People> list = new TreeSet<>();
         
-        int[] start = new int[n];
-        int[] speed = new int[n];
-
         for (int i = 0; i < n; i++) {
-            start[i] = sc.nextInt();
-            speed[i] = sc.nextInt();
+            int start = sc.nextInt();
+            int speed = sc.nextInt();
+            list.add(new People(start, speed));
         }
 
-        int count = 0;
-        for (int i = 0; i<n-1; i++) {
+        People people = list.first();
+        people = list.higher(people);
 
-            if (i == n-2) {
-                if (start[i] + speed[i] * t < start[i+1] + speed[i+1] * t) {
-                    count = count+2;
+        while (true) {
+
+            if (list.higher(people) == null) {
+                break;
+            }
+
+            People people1 = list.higher(people);
+            People people2 = list.lower(people);
+
+            int total = people.start + people.speed * t;
+            int total1 = people1.start + people1.speed * t;
+            int total2 = people2.start + people2.speed * t;
+
+            if (total >= total1 && total <= total2) {
+                int t1 = (people1.start - people.start) / (people.speed - people1.speed);
+                int t2 = (people.start - people2.start) / (people2.speed - people.speed);
+            
+                if (t1 < t2) {
+                    list.remove(people);
+                }
+                else if (t1 > t2) {
+                    list.remove(people2);
                 }
                 else {
-                    count++;
-                }
-
-
-            }
-
-            else {
-                if (start[i] + speed[i] * t < start[i+1] + speed[i+1] * t) {
-                    count++;
+                    list.remove(people);
+                    list.remove(people2);
                 }
             }
+            else if (total >= total1) {
+                list.remove(people);
+            }
+            else if (total <= total2){
+                list.remove(people2);
+            }
+
+            people = people1;
         }
 
-        System.out.print(count);
+
+        System.out.print(list.size());
+
+
     }
 }
