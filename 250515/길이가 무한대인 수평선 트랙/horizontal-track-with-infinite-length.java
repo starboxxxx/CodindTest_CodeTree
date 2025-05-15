@@ -30,19 +30,14 @@ public class Main {
         }
 
         People people = list.first();
-        people = list.higher(people);
 
         while (true) {
 
+            //전 사람과 겹치는지 확인
             if (list.lower(people) != null ) {
                 People before = list.lower(people);
                 if (before.start * before.speed * t >= people.start + people.speed * t) {
-                    if (before.speed >= people.speed) {
-                        list.remove(before);
-                    }
-                    else {
-                        list.remove(people);
-                    }
+                    list.remove(before);
                 }
             }
 
@@ -50,6 +45,7 @@ public class Main {
                 break;
             }
 
+            //다음사람과 겹치는지 확인
             People after = list.higher(people);
             if (people.start + people.speed * t >= after.start + after.speed * t) {
                 list.remove(people);
