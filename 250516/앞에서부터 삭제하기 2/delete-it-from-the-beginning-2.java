@@ -31,7 +31,7 @@ public class Main {
                 }
                 pq.poll();
             }
-                max = Math.max(max, (total - pq.peek()) / (count-1));
+                max = Math.max(max, (double)(total - pq.peek()) / (count-1));
             
         }
 
