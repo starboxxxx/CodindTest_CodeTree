@@ -15,7 +15,8 @@ public class Main {
                 int b = pq.poll();
                 int c = pq.poll();
 
-                System.out.println(a * b * c);
+                long num = (long) a * b * c;
+                System.out.println((int) num);
                 pq.add(a);
                 pq.add(b);
                 pq.add(c);
