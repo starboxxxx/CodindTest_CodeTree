@@ -33,7 +33,7 @@ public class Main {
                 }
             }
 
-            if (arr[minIdx] == x) {
+            if (minIdx >= n || minIdx < 0 || arr[minIdx] == x) {
                 System.out.println(minIdx+1);
             }
             else {
