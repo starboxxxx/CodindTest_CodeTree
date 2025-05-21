@@ -42,11 +42,12 @@ public class Main {
 
                         int total = (sum[i][j]-1000) - (sum[x-1][j]-1000) - (sum[i][y-1]-1000) + (sum[x-1][y-1]-1000);
 
-                        System.out.println(total);
                         max = Math.max(max, total);
                     }
                 }
             }
         }
+
+        System.out.print(max);
     }
 }
