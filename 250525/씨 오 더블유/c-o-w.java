@@ -2,7 +2,7 @@ import java.util.Scanner;
 public class Main {
 
     public static int n;
-    public static int[][] nums;
+    public static long[][] nums;
     public static char[] alpha;
 
     public static void main(String[] args) {
@@ -15,7 +15,7 @@ public class Main {
             alpha[i] = str.charAt(i-1);
         }
 
-        nums = new int[n+1][3];
+        nums = new long[n+1][3];
 
         System.out.print(dp());
     }
@@ -41,6 +41,6 @@ public class Main {
             }
         }
 
-        return (long)nums[n][2];
+        return nums[n][2];
     }
 }
