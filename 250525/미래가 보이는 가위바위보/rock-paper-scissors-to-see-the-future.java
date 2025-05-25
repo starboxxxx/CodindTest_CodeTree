@@ -36,6 +36,10 @@ public class Main {
 
         int max = Integer.MIN_VALUE;
 
+        max = Math.max(max, H[n]);
+        max = Math.max(max, S[n]);
+        max = Math.max(max, P[n]);
+
         for (int i = 2; i<=n; i++) {
             int sum1 = H[i-1];
 
