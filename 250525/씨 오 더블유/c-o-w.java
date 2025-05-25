@@ -20,7 +20,7 @@ public class Main {
         System.out.print(dp());
     }
 
-    public static int dp() {
+    public static long dp() {
         for (int i = 1; i<=n; i++) {
             char a = alpha[i];
 
@@ -41,6 +41,6 @@ public class Main {
             }
         }
 
-        return nums[n][2];
+        return (long)nums[n][2];
     }
 }
