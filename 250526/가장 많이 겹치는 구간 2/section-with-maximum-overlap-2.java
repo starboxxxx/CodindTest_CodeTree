@@ -35,8 +35,8 @@ public class Main {
 
         TreeSet<Integer> set = new TreeSet<>();
 
-        int count = 0;
-        int max = 1;
+        int count = 1;
+        int max = Integer.MIN_VALUE;
         for (int i = 0; i< 2*n; i++) {
             int x = list.get(i).x;
             int v = list.get(i).v;
