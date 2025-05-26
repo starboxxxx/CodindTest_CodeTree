@@ -46,9 +46,10 @@ public class Main {
 
             if (v == 1) {
                 if (set.isEmpty()) {
-                    set.add(index);
                     cnt++;
                 }
+
+                set.add(index);
             }
 
             else {
