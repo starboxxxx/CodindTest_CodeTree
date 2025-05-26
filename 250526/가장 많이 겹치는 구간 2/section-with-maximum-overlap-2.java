@@ -35,26 +35,19 @@ public class Main {
 
         TreeSet<Integer> set = new TreeSet<>();
 
-        int count = 1;
+        int count = 0;
         int max = Integer.MIN_VALUE;
         for (int i = 0; i< 2*n; i++) {
             int x = list.get(i).x;
             int v = list.get(i).v;
             int index = list.get(i).index;
 
-            if (index == 1) {
-                if (set.isEmpty()) {
-                    count = 0;
-                }
+            if (v == 1) {
                 set.add(index);
-                count++;
             }
 
             else {
-                if (set.size() == 1) {
-                    max = Math.max(max, count);
-                }
-
+                max = Math.max(max, set.size());
                 set.remove(index);
             }
         }
