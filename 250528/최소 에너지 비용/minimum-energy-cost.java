@@ -16,11 +16,17 @@ public class Main {
             R[i] = R[i+1] + dist[i];
         }
 
-        long min = cost[0] * R[0];
-        long total = 0;
-        for (int i = 1; i<n; i++) {
-            total += dist[i-1] * cost[i-1];
-            min = Math.min(min, total + cost[i] * R[i]);
+        long[] L = new long[n];
+
+        L[1] = cost[0] * dist[0];
+
+        for (int i = 2; i<n; i++) {
+            L[i] = L[i-1] + cost[i-1] * dist[i-1];
+        }
+        
+        long min = (long) Integer.MAX_VALUE;
+        for (int i = 0; i<n; i++) {
+            min = Math.min(min, L[i] + cost[i] * R[i]);
         }
         
         System.out.print(min);
