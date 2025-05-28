@@ -10,25 +10,18 @@ public class Main {
         for (int i = 0; i < n; i++)
             cost[i] = (long) sc.nextInt();
         
-        long[] R = new long[n];
+        long[] minCost = new long[n];
         
-        for (int i = n-2; i>=0; i--) {
-            R[i] = R[i+1] + dist[i];
-        }
-
-        long[] L = new long[n];
-
-        L[1] = cost[0] * dist[0];
-
-        for (int i = 2; i<n; i++) {
-            L[i] = L[i-1] + cost[i-1] * dist[i-1];
-        }
-        
-        long min = L[0] + cost[0] * R[0];
+        minCost[0] = cost[0];
         for (int i = 1; i<n; i++) {
-            min = Math.min(min, L[i] + cost[i] * R[i]);
+            minCost[i] = Math.min(minCost[i-1], cost[i]);
+        }
+
+        long total = dist[0] * cost[0];
+        for (int i = 1; i<n; i++) {
+            total += dist[i] * minCost[i];
         }
         
-        System.out.print(min);
+        System.out.print(total);
     }
 }
