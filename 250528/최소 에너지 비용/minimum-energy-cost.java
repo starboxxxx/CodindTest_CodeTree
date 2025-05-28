@@ -16,7 +16,7 @@ public class Main {
             R[i] = R[i+1] + dist[i];
         }
 
-        int min = Integer.MAX_VALUE;
+        long min = (long)Integer.MAX_VALUE;
         int total = 0;
         for (int i = 0; i<n; i++) {
             
@@ -26,7 +26,7 @@ public class Main {
             else {
                 total += dist[i-1] * cost[i-1];
             }
-            min = Math.min(min, total + cost[i] * R[i]);
+            min = Math.min(min, (long)total + cost[i] * R[i]);
         }
         
         System.out.print(min);
