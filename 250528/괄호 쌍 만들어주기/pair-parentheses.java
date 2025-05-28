@@ -18,12 +18,12 @@ public class Main {
             }
         }
 
-        int total = 0;
+        long total = 0;
 
         for (int i = 1; i<A.length(); i++) {
             
             if (k[i] == '(' && k[i-1] == '(') {
-                total += sum[i];
+                total += (long)sum[i];
             }
         }
 
