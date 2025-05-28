@@ -22,6 +22,11 @@ public class Main {
             bomb[m] = i;
         }
 
-        System.out.print(max);
+        if (max == Integer.MIN_VALUE) {
+            System.out.print(-1);
+        }
+        else {
+            System.out.print(max);
+        }
     }
 }
