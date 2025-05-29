@@ -23,15 +23,15 @@ public class Main {
         }
 
         int max = Integer.MIN_VALUE;
+        int total = 0;
         for (int i = 0; i<n; i++) {
-            int k = sum[i] % 7;
+            total = (total+nums[i]) % 7;
 
-            if (partition[k] == -1) {
-                partition[k] = i;
+            if (partition[total] == -1) {
+                partition[total] = i;
             }
             else {
-                max = Math.max(max, i-partition[k] + 1);
-                partition[k] = i;
+                max = Math.max(max, i-partition[total]);
             }
         }
 
