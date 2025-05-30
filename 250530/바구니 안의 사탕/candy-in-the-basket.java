@@ -15,7 +15,7 @@ public class Main {
         }
 
         int sum = 0;
-        for (int i = 1; i<=1+2*k; i++) {
+        for (int i = 0; i<=2*k; i++) {
             if (i >= 1000001) {
                 break;
             }
@@ -23,9 +23,9 @@ public class Main {
         }
 
         int max = sum;
-        sum -= candy[1];
+        sum -= candy[0];
 
-        for (int i = 2; i<=1000000; i++) {
+        for (int i = 1; i<=1000000; i++) {
             int p = i + 2*k;
             if (p >= 1000001) {
                 break;
