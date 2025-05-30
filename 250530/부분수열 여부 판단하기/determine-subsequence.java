@@ -8,7 +8,7 @@ public class Main {
         int m = sc.nextInt();
 
         int[] A = new int[n+1];
-        int[] B = new int[n+1];
+        int[] B = new int[m+1];
 
         for (int i = 1; i<=n; i++) {
             A[i] = sc.nextInt();
