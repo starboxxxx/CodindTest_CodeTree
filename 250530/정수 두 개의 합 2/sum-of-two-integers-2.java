@@ -12,13 +12,13 @@ public class Main {
         Arrays.sort(arr);
     
         int count = 0;
-        int end = n;
+        int end = n-1;
 
         for (int i = 0; i<n; i++) {
             int sum = arr[i];
             int j = i;
 
-            while (j+1 < end && sum + arr[j+1] <= k) {
+            while (j+1 <= end && sum + arr[j+1] <= k) {
                 count++;
                 j++;
             }
