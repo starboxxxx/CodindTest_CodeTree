@@ -15,15 +15,16 @@ public class Main {
         int end = n-1;
 
         for (int i = 0; i<n; i++) {
-            int sum = arr[i];
-            int j = i;
-
-            while (j+1 <= end && sum + arr[j+1] <= k) {
-                count++;
-                j++;
+            
+            while (end != 0 && arr[i] + arr[end] > k) {
+                end--;
             }
 
-            end = j;
+            if (end <= i) {
+                break;
+            }
+
+            count += end-i;
         }
 
         System.out.print(count);
