@@ -27,7 +27,7 @@ public class Main {
 
         for (int i = 2; i<=1000000; i++) {
             int p = i + 2*k;
-            if (p >= n) {
+            if (p >= 1000001) {
                 break;
             }
             sum += candy[p];
