@@ -1,28 +1,10 @@
 import java.util.*;
 
-class Number implements Comparable<Number> {
-    int index;
-    int x;
-
-    public Number(int index, int x) {
-        this.index = index;
-        this.x = x;
-    }
-
-    @Override
-    public int compareTo(Number n) {
-        if (this.x != n.x) {
-            return this.x - n.x;
-        }
-        return this.index - n.index;
-    }
-}
-
 public class Main {
 
     public static int max = Integer.MIN_VALUE;
-    public static TreeSet<Number> group1 = new TreeSet<>();
-    public static TreeSet<Number> group2 = new TreeSet<>();
+    public static TreeSet<Integer> group1 = new TreeSet<>();
+    public static TreeSet<Integer> group2 = new TreeSet<>();
     public static int[] arr;
     public static int k;
 
@@ -36,40 +18,44 @@ public class Main {
         
         Arrays.sort(arr);
 
-        group1.add(new Number(0, arr[0]));
+        group1.add(0);
         int j = 0;
 
-        for (int i = 0; i < n; i++) {
-            while (j + 1 < n && can(j + 1)) {
-                put(j + 1);
+        for (int i = 0; i<n; i++) {
+            while (j+1 < n && can(j+1)) {
+                put(j+1);
                 j++;
             }
 
-            max = Math.max(max, group1.size() + group2.size());
+            if (group1.size() + group2.size() > max) {
+                max = Math.max(max, group1.size() + group2.size());
+            }
 
-            if (group1.contains(new Number(i, arr[i]))) {
-                group1.remove(new Number(i, arr[i]));
-            } else if (group2.contains(new Number(i, arr[i]))) {
-                group2.remove(new Number(i, arr[i]));
+            if (group1.contains(i)) {
+                group1.remove(i);
+            }
+
+            else if (group2.contains(i)) {
+                group2.remove(i);
             }
         }
         System.out.print(max);
     }
 
-    public static boolean can(int j) {
-        boolean canGroup1 = group1.isEmpty() || arr[j] - group1.first().x <= k;
-        boolean canGroup2 = group2.isEmpty() || arr[j] - group2.first().x <= k;
-        return canGroup1 || canGroup2;
+    public static boolean can (int j) {
+        if (group1.isEmpty() || group2.isEmpty() || arr[j] - arr[group1.first()] <= k || arr[j] - arr[group2.first()] <= k) {
+            return true;
+        }
+        return false;
     }
 
-    public static void put(int j) {
-        boolean canGroup1 = group1.isEmpty() || arr[j] - group1.first().x <= k;
-        boolean canGroup2 = group2.isEmpty() || arr[j] - group2.first().x <= k;
+    public static void put (int j) {
+        if (group1.isEmpty() || arr[j] - arr[group1.first()] <= k) {
+            group1.add(j);
+        }
 
-        if (canGroup1) {
-            group1.add(new Number(j, arr[j]));
-        } else if (canGroup2) {
-            group2.add(new Number(j, arr[j]));
+        else if (group2.isEmpty() || arr[j] - arr[group2.first()] <= k) {
+            group2.add(j);
         }
     }
 }
