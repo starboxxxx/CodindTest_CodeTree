@@ -11,16 +11,12 @@ public class Main {
         Arrays.sort(arr);
 
         int index = n-1;
-
-        int min = Math.abs(arr[0] + arr[n-1]);
-
-        for (int i = 0; i<n; i++) {
-
-            if (index <= i) {
-                break;
+        int min = 1000000000 * 2;
+        for (int i = 0; i<n-1; i++) {
+            if (index > i) {
+                min = Math.min(min, Math.abs(arr[i] + arr[index]));
             }
-
-            while (index-1 >= 1 && Math.abs(arr[i] + arr[index-1]) <= Math.abs(arr[i] + arr[index])) {
+            while (index-1 > i && Math.abs(arr[i] + arr[index-1]) <= Math.abs(arr[i] + arr[index])) {
                 min = Math.min(min, Math.abs(arr[i] + arr[index-1]));
                 index--;
             }
