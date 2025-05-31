@@ -1,10 +1,25 @@
 import java.util.*;
 
+class Number implements Comparable<Number> {
+    int x;
+    int index;
+
+    public Number(int x, int index) {
+        this.x = x;
+        this.index = index;
+    }
+
+    @Override
+    public int compareTo(Number n) {
+        return this.x - n.x;
+    }
+}
+
 public class Main {
 
     public static int max = Integer.MIN_VALUE;
-    public static TreeSet<Integer> group1 = new TreeSet<>();
-    public static TreeSet<Integer> group2 = new TreeSet<>();
+    public static TreeSet<Number> group1 = new TreeSet<>();
+    public static TreeSet<Number> group2 = new TreeSet<>();
     public static int[] arr;
     public static int k;
 
@@ -27,12 +42,12 @@ public class Main {
 
             max = Math.max(max, group1.size() + group2.size());
 
-            if (group1.contains(i)) {
-                group1.remove(i);
+            if (group1.contains(new Number(arr[i], i))) {
+                group1.remove(new Number(arr[i], i));
             }
 
-            if (group2.contains(i)) {
-                group2.remove(i);
+            if (group2.contains(new Number(arr[i], i))) {
+                group2.remove(new Number(arr[i], i));
             }
         }
 
@@ -40,19 +55,19 @@ public class Main {
     }
 
     public static boolean can (int j) {
-        if (group1.isEmpty() || group2.isEmpty() || arr[j] - arr[group1.first()] <= k || arr[j] - arr[group2.first()] <= k) {
+        if (group1.isEmpty() || group2.isEmpty() || arr[j] - arr[group1.first().x] <= k || arr[j] - arr[group2.first().x] <= k) {
             return true;
         }
         return false;
     }
 
     public static void put (int j) {
-        if (group1.isEmpty() || arr[j] - arr[group1.first()] <= k) {
-            group1.add(j);
+        if (group1.isEmpty() || arr[j] - arr[group1.first().x] <= k) {
+            group1.add(new Number(arr[j], j));
         }
 
-        else if (group2.isEmpty() || arr[j] - arr[group2.first()] <= k) {
-            group2.add(j);
+        else if (group2.isEmpty() || arr[j] - arr[group2.first().x] <= k) {
+            group2.add(new Number(arr[j], j));
         }
     }
 }
