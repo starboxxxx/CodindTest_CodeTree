@@ -27,10 +27,6 @@ public class Main {
                 j++;
             }
 
-            if (group1.size() + group2.size() > max) {
-                max = Math.max(max, group1.size() + group2.size());
-            }
-
             if (group1.contains(i)) {
                 group1.remove(i);
             }
@@ -57,5 +53,7 @@ public class Main {
         else if (group2.isEmpty() || arr[j] - arr[group2.first()] <= k) {
             group2.add(j);
         }
+
+        max = Math.max(max, group1.size() + group2.size());
     }
 }
