@@ -11,6 +11,9 @@ class Number implements Comparable<Number> {
 
     @Override
     public int compareTo(Number n) {
+        if (this.x != n.x) {
+            return this.x - n.x;
+        }
         return this.index - n.index;
     }
 }
