@@ -20,7 +20,7 @@ public class Main {
                 break;
             }
 
-            while (index-1 >= 0 && Math.abs(arr[i] + arr[index-1]) < Math.abs(arr[i] + arr[index])) {
+            while (index-1 >= 1 && Math.abs(arr[i] + arr[index-1]) < Math.abs(arr[i] + arr[index])) {
                 min = Math.min(min, Math.abs(arr[i] + arr[index-1]));
                 index--;
             }
