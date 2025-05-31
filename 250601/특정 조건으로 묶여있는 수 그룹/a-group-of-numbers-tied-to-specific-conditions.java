@@ -1,79 +1,54 @@
 import java.util.*;
 
-class Number implements Comparable<Number> {
-    int index;
-    int x;
-
-    public Number(int index, int x) {
-        this.index = index;
-        this.x = x;
-    }
-
-    @Override
-    public int compareTo(Number n) {
-        if (this.x != n.x) {
-            return this.x - n.x;
-        }
-        return this.index - n.index;
-    }
-}
-
 public class Main {
-
-    public static int max = Integer.MIN_VALUE;
-    public static TreeSet<Number> group1 = new TreeSet<>();
-    public static TreeSet<Number> group2 = new TreeSet<>();
-    public static int[] arr;
-    public static int k;
-
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+
         int n = sc.nextInt();
-        k = sc.nextInt();
-        arr = new int[n];
+        int k = sc.nextInt();
+        int[] arr = new int[n];
         for (int i = 0; i < n; i++)
             arr[i] = sc.nextInt();
-        
+
         Arrays.sort(arr);
 
-        group1.add(new Number(0, arr[0]));
-        int j = 0;
+        // 각 인덱스별로, 끝나는 최대 구간 크기 저장
+        int[] maxLeft = new int[n];
+        int[] maxRight = new int[n];
 
-        for (int i = 0; i<n; i++) {
-            while (j+1 < n && can(j+1)) {
-                put(j+1);
-                j++;
-            }
-
-            if (group1.size() + group2.size() >= max) {
-                max = Math.max(max, group1.size() + group2.size());
-            }
-
-            if (group1.contains(new Number(i, arr[i]))) {
-                group1.remove(new Number(i, arr[i]));
-            }
-
-            else if (group2.contains(new Number(i, arr[i]))) {
-                group2.remove(new Number(i, arr[i]));
-            }
-        }
-        System.out.print(max);
-    }
-
-    public static boolean can (int j) {
-        if (group1.isEmpty() || group2.isEmpty() || arr[j] - group1.first().x <= k || arr[j] - group2.first().x <= k) {
-            return true;
-        }
-        return false;
-    }
-
-    public static void put (int j) {
-        if (group1.isEmpty() || arr[j] - group1.first().x <= k) {
-            group1.add(new Number(j, arr[j]));
+        // 왼쪽에서 최대 구간 구하기 (0 ~ i까지)
+        int l = 0;
+        for (int r = 0; r < n; r++) {
+            while (arr[r] - arr[l] > k) l++;
+            maxLeft[r] = r - l + 1;
         }
 
-        else if (group2.isEmpty() || arr[j] - group2.first().x <= k) {
-            group2.add(new Number(j, arr[j]));
+        // 왼쪽 최대값 누적
+        for (int i = 1; i < n; i++) {
+            maxLeft[i] = Math.max(maxLeft[i], maxLeft[i - 1]);
         }
+
+        // 오른쪽에서 최대 구간 구하기 (i ~ n-1까지)
+        int r = n - 1;
+        for (int i = n - 1; i >= 0; i--) {
+            while (arr[r] - arr[i] > k) r--;
+            maxRight[i] = r - i + 1;
+        }
+
+        // 오른쪽 최대값 누적
+        for (int i = n - 2; i >= 0; i--) {
+            maxRight[i] = Math.max(maxRight[i], maxRight[i + 1]);
+        }
+
+        // 두 구간의 최대 합 구하기
+        int result = 0;
+        for (int i = 0; i < n - 1; i++) {
+            result = Math.max(result, maxLeft[i] + maxRight[i + 1]);
+        }
+
+        // 한 그룹만 쓰는 경우도 고려
+        result = Math.max(result, maxLeft[n - 1]);
+
+        System.out.println(result);
     }
 }
