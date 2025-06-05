@@ -84,6 +84,10 @@ public class Main {
                     }
 
                     j++;
+
+                    if (j == n-1 && map1.size() == m) {
+                        min = Math.min(min, j-i+1);
+                    }
                 }
 
                 if (map1.containsKey(arr[i])) {
