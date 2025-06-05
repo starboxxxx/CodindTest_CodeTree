@@ -63,6 +63,12 @@ public class Main {
 
             for (int i = 0; i<n; i++) {
                 while (j+1 < n) {
+                    
+                    if (map1.size() == m) {
+                        min = Math.min(min, j-i+1);
+                        break;
+                    }
+
                     if (map2.containsKey(arr[j+1])) {
                         if (map2.get(arr[j+1]) == 1) {
                             break;
@@ -78,11 +84,6 @@ public class Main {
                     }
 
                     j++;
-
-                    if (map1.size() == m) {
-                        min = Math.min(min, j-i+1);
-                        break;
-                    }
                 }
 
                 if (map1.containsKey(arr[i])) {
