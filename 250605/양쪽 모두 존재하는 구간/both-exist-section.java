@@ -81,6 +81,7 @@ public class Main {
 
                     if (map1.size() == m) {
                         min = Math.min(min, j-i+1);
+                        break;
                     }
                 }
 
