@@ -19,11 +19,11 @@ public class Main {
         long answer = 0;
 
         for (int i = 0; i<n; i++) {
-            while (j+1 < m && (long)Math.abs(fires[i] - stations[j+1]) <= distance) {
+            while (j+1 < m && (long)Math.abs(fires[i] - stations[j+1]) < distance) {
                 j++;
             }
 
-            
+
             answer = Math.max(answer, (long)Math.abs(fires[i] - stations[j]));
 
             if (i+1 < n) {
