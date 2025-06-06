@@ -15,19 +15,20 @@ public class Main {
         Arrays.sort(stations);
 
         int j = 0;
-        long distance = (long)Math.abs(stations[0] - fires[0]);
-        long answer = 0;
+        int distance = Math.abs(stations[0] - fires[0]);
+        int answer = 0;
 
         for (int i = 0; i<n; i++) {
-            while (j+1 < m && (long)Math.abs(fires[i] - stations[j+1]) < distance) {
+            while (j+1 < m && Math.abs(fires[i] - stations[j+1]) < distance) {
+                distance = Math.abs(fires[i] - stations[j+1]);
                 j++;
             }
 
 
-            answer = Math.max(answer, (long)Math.abs(fires[i] - stations[j]));
+            answer = Math.max(answer, Math.abs(fires[i] - stations[j]));
 
             if (i+1 < n) {
-                distance = (long)Math.abs(stations[j] - fires[i+1]);
+                distance = Math.abs(stations[j] - fires[i+1]);
             }
         }
 
