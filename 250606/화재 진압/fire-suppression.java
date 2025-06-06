@@ -20,15 +20,14 @@ public class Main {
 
         for (int i = 0; i<n; i++) {
             while (j+1 < m && (long)Math.abs(fires[i] - stations[j+1]) <= distance) {
-                answer = (long)Math.max(answer, (long)Math.abs(fires[i] - stations[j+1]));
                 j++;
             }
 
+            
+            answer = Math.max(answer, (long)Math.abs(fires[i] - stations[j]));
+
             if (i+1 < n) {
                 distance = (long)Math.abs(stations[j] - fires[i+1]);
-                if (i+1 == n-1) {
-                    answer = (long)Math.max(answer, distance);
-                }
             }
         }
 
