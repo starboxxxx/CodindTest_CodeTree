@@ -14,7 +14,12 @@ public class Main {
             long total = mid - ((mid / 3L) + (mid / 5L) - (mid / 15L));
 
             if (total == n) {
-                System.out.print(mid);
+                if (mid % 3 != 0 && mid % 5 != 0) {
+                    System.out.print(mid);
+                }
+                else {
+                    System.out.print(mid-1);
+                }
                 break;
             }
             else if (total > n) {
