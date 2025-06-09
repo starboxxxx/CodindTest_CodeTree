@@ -7,7 +7,7 @@ public class Main {
 
         long max = Long.MIN_VALUE;
         long left = 1;
-        long right = 1000000000;
+        long right = 10000000000L;
 
         while (left <= right) {
             long mid = (left + right) / 2;
