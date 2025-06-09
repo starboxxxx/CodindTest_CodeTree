@@ -32,6 +32,11 @@ public class Main {
             }
         }
 
-        System.out.print(max);
+        if (max == Integer.MIN_VALUE) {
+            System.out.print(0);
+        }
+        else {
+            System.out.print(max);
+        }
     }
 }
