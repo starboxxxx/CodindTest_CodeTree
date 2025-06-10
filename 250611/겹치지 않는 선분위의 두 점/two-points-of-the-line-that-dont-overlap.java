@@ -47,14 +47,16 @@ public class Main {
             long current = k;
             long count = 1;
             for (int i = 0; i<m; i++) {
-                if (current + mid < points[i].start) {
-                    current = points[i].start;
-                    count++;
-                }
+                long start = points[i].start;
+                long end = points[i].end;
 
-                while (current + mid <= points[i].end) {
+                while (current + mid <= end) {
                     count++;
-                    current += mid;
+                    current = Math.max(start, current+mid);
+
+                    if (count >= n) {
+                        break;
+                    }
                 }
             }
 
