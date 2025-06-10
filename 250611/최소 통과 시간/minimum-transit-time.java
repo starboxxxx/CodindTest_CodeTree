@@ -10,7 +10,7 @@ public class Main {
         
         int left = 1;
         int right = 1000000000;
-        int answer = Long.MAX_VALUE;
+        int answer = Integer.MAX_VALUE;
 
         while (left <= right) {
 
