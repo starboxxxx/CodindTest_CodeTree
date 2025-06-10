@@ -9,7 +9,7 @@ public class Main {
             arr[i] = sc.nextInt();
         
         long left = 1;
-        long right = 2000000000;
+        long right = 10000000000;
         long answer = Long.MAX_VALUE;
 
         while (left <= right) {
