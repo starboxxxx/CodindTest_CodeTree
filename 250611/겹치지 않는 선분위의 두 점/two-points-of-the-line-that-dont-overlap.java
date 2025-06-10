@@ -44,8 +44,8 @@ public class Main {
         while (left <= right) {
             long mid = (left + right) / 2;
             
-            long current = k;
-            long count = 1;
+            long current = -((long) 1e18);
+            long count = 0;
             for (int i = 0; i<m; i++) {
                 long start = points[i].start;
                 long end = points[i].end;
