@@ -8,13 +8,13 @@ public class Main {
         for (int i = 0; i < m; i++)
             arr[i] = sc.nextInt();
         
-        int left = 1;
-        int right = 1000000000;
-        int answer = Integer.MAX_VALUE;
+        long left = 1;
+        long right = 1000000000;
+        long answer = Long.MAX_VALUE;
 
         while (left <= right) {
 
-            int mid = (left + right) / 2;
+            long mid = (left + right) / 2;
 
             int count = 0;
 
