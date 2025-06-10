@@ -14,7 +14,7 @@ public class Main {
 
         while (left <= right) {
 
-            long mid = (left + right) / 2;
+            long mid = (left + right) / 2L;
 
             long count = 0;
 
