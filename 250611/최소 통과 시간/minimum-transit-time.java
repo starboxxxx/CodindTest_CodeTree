@@ -14,7 +14,7 @@ public class Main {
 
         while (left <= right) {
 
-            long mid = (left + right) / 2;
+            long mid = (long) (left + right) / 2;
 
             long count = 0;
 
@@ -23,11 +23,11 @@ public class Main {
             }
 
             if (count >= n) {
-                right = mid-1;
+                right = mid-1L;
                 answer = Math.min(answer, mid);
             }
             else {
-                left = mid+1;
+                left = mid+1L;
             }
         }
 
