@@ -21,7 +21,7 @@ class Point implements Comparable<Point> {
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
+        long n = sc.nextInt();
         int m = sc.nextInt();
         Point[] points = new Point[m];
         for (int i = 0; i < m; i++) {
