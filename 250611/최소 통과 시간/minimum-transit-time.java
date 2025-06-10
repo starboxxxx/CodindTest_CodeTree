@@ -9,8 +9,8 @@ public class Main {
             arr[i] = sc.nextInt();
         
         long left = 1;
-        long right = 100000 * 1000000000;
-        long answer = 100000 * 1000000000;
+        long right = n * 1000000000;
+        long answer = n * 1000000000;
 
         while (left <= right) {
 
