@@ -16,7 +16,7 @@ public class Main {
 
             long mid = (left + right) / 2;
 
-            int count = 0;
+            long count = 0;
 
             for (int i = 0; i<m; i++) {
                 count += (mid / arr[i]);
