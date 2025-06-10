@@ -10,7 +10,7 @@ public class Main {
         
         long left = 1;
         long right = 100000 * 1000000000;
-        long answer = Long.MAX_VALUE;
+        long answer = 100000 * 1000000000;
 
         while (left <= right) {
 
