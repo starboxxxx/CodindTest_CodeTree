@@ -4,9 +4,9 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int m = sc.nextInt();
-        int[] arr = new int[m];
+        long[] arr = new long[m];
         for (int i = 0; i < m; i++)
-            arr[i] = sc.nextInt();
+            arr[i] = sc.nextLong();
         
         long left = 1;
         long right = n * 1000000000;
@@ -14,7 +14,7 @@ public class Main {
 
         while (left <= right) {
 
-            long mid = (long) (left + right) / 2;
+            long mid = (left + right) / 2;
 
             long count = 0;
 
@@ -23,11 +23,11 @@ public class Main {
             }
 
             if (count >= n) {
-                right = mid-1L;
+                right = mid-1;
                 answer = Math.min(answer, mid);
             }
             else {
-                left = mid+1L;
+                left = mid+1;
             }
         }
 
