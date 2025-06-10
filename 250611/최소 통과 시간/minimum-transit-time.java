@@ -8,8 +8,8 @@ public class Main {
         for (int i = 0; i < m; i++)
             arr[i] = sc.nextInt();
         
-        long left = 1;
-        long right = 10000000000;
+        long left = 1L;
+        long right = n * 1000000000;
         long answer = Long.MAX_VALUE;
 
         while (left <= right) {
