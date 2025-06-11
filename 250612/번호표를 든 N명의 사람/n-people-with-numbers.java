@@ -5,21 +5,21 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int tMax = sc.nextInt();
-        int[] d = new int[n];
-        for (int i = 0; i < n; i++) {
+        int[] d = new int[n+1];
+        for (int i = 1; i <= n; i++) {
             d[i] = sc.nextInt();
         }
 
-        int left = 0;
-        int right = n-1;
-        int answer = n+1;
+        int left = 1;
+        int right = n;
+        int answer = n;
 
         while (left <= right) {
             int mid = (left + right) / 2;
 
             PriorityQueue<Integer> pq = new PriorityQueue<>();
 
-            for (int i = 0; i<mid; i++) {
+            for (int i = 1; i<=mid; i++) {
                 pq.add(d[i]);
             }
 
@@ -28,7 +28,7 @@ public class Main {
             int max = 0;
             while (!pq.isEmpty()) {
                 int time = pq.poll();
-                if (index < n) {
+                if (index <= n) {
                     pq.add(time + d[index]);
                     max = Math.max(max, time + d[index]);
                     index++;
@@ -37,7 +37,7 @@ public class Main {
 
             if (max <= tMax) {
                 right = mid - 1;
-                answer = Math.min(answer, mid+1);
+                answer = Math.min(answer, mid);
             }
             else {
                 left = mid+1;
