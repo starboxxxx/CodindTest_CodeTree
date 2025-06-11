@@ -41,25 +41,14 @@ public class Main {
 
         while (left <= right) {
             int mid = (left + right) / 2;
-
-            boolean can = false;            
-            for (int i = points[0].start; i<=points[0].end; i++) {
-                boolean isTrue = true;
-                int current = i;
-
-                for (int j = 1; j<n; j++) {
-                    if (current + mid >= points[j].start && current + mid <= points[j].end) {
-                        current += mid;
-                    }
-                    else {
-                        isTrue = false;
-                        break;
-                    }
+            boolean can = true;            
+            int current = points[0].start;
+            for (int i = 1; i<n; i++) {
+                if (current + mid > points[i].end) {
+                    can = false;
+                    break;
                 }
-
-                if (isTrue) {
-                    can = true;
-                }
+                current = Math.max(points[i].start, current+mid);
             }
 
             if (can) {
