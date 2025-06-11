@@ -35,8 +35,6 @@ public class Main {
 
         Arrays.sort(points);
 
-        int k = points[0].start;
-
         int left = 1;
         int right = 1000000000;
         int answer = 0;
@@ -55,6 +53,7 @@ public class Main {
                     }
                     else {
                         isTrue = false;
+                        break;
                     }
                 }
 
