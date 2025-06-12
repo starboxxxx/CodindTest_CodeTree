@@ -16,14 +16,15 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int[][] board = new int[n][n];
+        int max = 0;
         for (int i = 0; i < n; i++)
             for (int j = 0; j < n; j++)
                 board[i][j] = sc.nextInt();
         
 
         int left = 1;
-        int right = n;
-        int answer = n+1;
+        int right = 1000000;
+        int answer = 1000001;
 
         int[] dx = new int[]{1, 0, -1, 0};
         int[] dy = new int[]{0, 1, 0, -1};
