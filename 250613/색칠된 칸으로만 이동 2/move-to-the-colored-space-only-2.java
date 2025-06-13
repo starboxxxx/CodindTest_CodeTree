@@ -6,6 +6,8 @@ public class Main {
     public static int[][] board;
     public static int[][] colored;
     public static int[][] visited;
+    public static int s;
+    public static int e;
     public static int count=0;
     public static int p;
 
@@ -28,6 +30,8 @@ public class Main {
                 colored[i][j] = sc.nextInt();
                 if (colored[i][j] == 1) {
                     count++;
+                    s = i;
+                    e = j;
                 }
             }
         }
@@ -41,7 +45,7 @@ public class Main {
             int mid = (left + right) / 2;
 
             boolean can = true;
-            for (int i =0; i<m; i++) {
+            for (int i = 0; i<m; i++) {
                 if (can == false) {
                     break;
                 }
@@ -84,6 +88,11 @@ public class Main {
     public static void dfs(int x, int y, int mid) {
         
         for (int i = 0; i<4; i++) {
+
+            if (p == count) {
+                break;
+            }
+
             int newX = x + dx[i];
             int newY = y + dy[i];
 
