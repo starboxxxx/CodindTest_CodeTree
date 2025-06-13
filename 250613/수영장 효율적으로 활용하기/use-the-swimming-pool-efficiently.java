@@ -46,6 +46,11 @@ public class Main {
             }
         }
 
-        System.out.print(answer);
+        if (n==1) {
+            System.out.print(arr[0]);
+        }
+        else {
+            System.out.print(answer);
+        }
     }
 }
