@@ -27,7 +27,7 @@ public class Main {
             int bus = 1;
 
             while (i < n && bus <= m) {
-                if (count <= c && t[i] <= current) {
+                if (count < c && t[i] <= current) {
                     count++;
                     i++;
                 }
