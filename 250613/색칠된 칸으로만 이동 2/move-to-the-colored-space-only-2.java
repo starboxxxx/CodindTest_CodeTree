@@ -44,35 +44,16 @@ public class Main {
         while (left <= right) {
             int mid = (left + right) / 2;
 
-            boolean can = true;
             for (int i = 0; i<m; i++) {
-                if (can == false) {
-                    break;
-                }
                 for (int j = 0; j<n; j++) {
-                    if (colored[i][j] == 1) {
-                        for (int a = 0; a<m; a++) {
-                            for (int b = 0; b<n; b++) {
-                                visited[a][b] = 0;
-                            }
-                        }
-
-                        int startX = i;
-                        int startY = j;
-                        visited[startX][startY] = 1;
-                        p = 1;
-                        dfs(startX, startY, mid);
-
-                        if (p != count) {
-                            can = false;
-                            break;
-                        };
-                    
-                    }
+                    visited[i][j] = 0;
                 }
             }
 
-            if (can) {
+            visited[s][e] = 1;
+            p = 1;
+
+            if (dfs(s, e, mid)) {
                 right = mid-1;
                 answer = Math.min(answer, mid);
             }
@@ -85,13 +66,9 @@ public class Main {
 
     }
 
-    public static void dfs(int x, int y, int mid) {
+    public static boolean dfs(int x, int y, int mid) {
         
         for (int i = 0; i<4; i++) {
-
-            if (p == count) {
-                break;
-            }
 
             int newX = x + dx[i];
             int newY = y + dy[i];
@@ -104,6 +81,11 @@ public class Main {
                 visited[newX][newY] = 1;
                 dfs(newX, newY, mid);
             }
+
+            if (p == count) {
+                return true;
+            }
         }
+        return false;
     }
 }
