@@ -19,10 +19,10 @@ public class Main {
         while (left <= right) {
             int mid = (left + right) / 2;
 
-            int current = pos[0] + 2 * mid;
-            int count = 1;            
+            int current = -1;
+            int count = 0;            
             boolean can = true;
-            int i = 1;
+            int i = 0;
             while (count <= k && i < n) {
                 if (pos[i] > current) {
                     count++;
