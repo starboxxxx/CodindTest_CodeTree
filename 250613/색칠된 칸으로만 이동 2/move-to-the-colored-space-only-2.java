@@ -42,6 +42,9 @@ public class Main {
 
             boolean can = true;
             for (int i =0; i<m; i++) {
+                if (can == false) {
+                    break;
+                }
                 for (int j = 0; j<n; j++) {
                     if (colored[i][j] == 1) {
                         for (int a = 0; a<m; a++) {
