@@ -23,12 +23,19 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
 
+        int[] x1 = new int[n];
+        int[] v1 = new int[n];
         Person[] person = new Person[n];
         for (int i = 0; i < n; i++) {
-            int start = sc.nextInt();
-            int end = sc.nextInt();
+            x1[i] = sc.nextInt();
+        }
 
-            person[i] = new Person(start, end);
+        for (int i = 0; i<n; i++) {
+            v1[i] = sc.nextInt();
+        }
+
+        for (int i = 0; i<n; i++) {
+            person[i] = new Person(x1[i], v1[i]);
         }
 
         Arrays.sort(person);
@@ -42,7 +49,7 @@ public class Main {
             double max = -1;
             int index = -1;
             for (int i = 0; i<n; i++) {
-                double x =(double) ((Math.abs(person[i].start - mid)) / person[i].speed);
+                double x = (double) ((Math.abs(person[i].start - mid)) / person[i].speed);
                 if (x > max) {
                     max = x;
                     index = i;
