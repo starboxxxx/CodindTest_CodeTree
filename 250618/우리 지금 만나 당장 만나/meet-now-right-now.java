@@ -33,9 +33,9 @@ public class Main {
 
         Arrays.sort(person);
 
-        int left = 0;
-        int right = 1000000000;
-        double answer = 1000000000.0;
+        int left = -2000000000;
+        int right = 2000000000;
+        double answer = 2000000000.0;
 
         while (left <= right) {
             int mid = (left + right) / 2;
