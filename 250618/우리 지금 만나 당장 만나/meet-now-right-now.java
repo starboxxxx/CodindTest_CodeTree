@@ -42,19 +42,10 @@ public class Main {
             double max = -1;
             int index = -1;
             for (int i = 0; i<n; i++) {
-                if (person[i].start >= mid) {
-                    double x = (double) (person[i].start - mid) / (double) person[i].speed;
-                    if (x > max) {
-                        max = x;
-                        index = i;
-                    }
-                }
-                else {
-                    double x = (double) (mid - person[i].start) / (double) person[i].speed;
-                    if (x > max) {
-                        max = x;
-                        index = i;
-                    }
+                double x =(double) ((Math.abs(person[i].start - mid)) / person[i].speed);
+                if (x > max) {
+                    max = x;
+                    index = i;
                 }
             }
 
