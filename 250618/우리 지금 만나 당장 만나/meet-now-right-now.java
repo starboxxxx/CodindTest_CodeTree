@@ -49,7 +49,7 @@ public class Main {
             double max = -1;
             int index = -1;
             for (int i = 0; i<n; i++) {
-                double x = (double) ((Math.abs(person[i].start - mid)) / person[i].speed);
+                double x = ((Math.abs(person[i].start - mid)) / person[i].speed);
                 if (x > max) {
                     max = x;
                     index = i;
