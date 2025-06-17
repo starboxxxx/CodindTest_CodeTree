@@ -39,7 +39,7 @@ public class Main {
 
         while (left <= right) {
             int mid = (left + right) / 2;
-            double max = 0;
+            double max = -1;
             int index = -1;
             for (int i = 0; i<n; i++) {
                 if (person[i].start >= mid) {
