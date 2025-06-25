@@ -11,9 +11,23 @@ public class Main {
             del[i] = sc.nextInt()-1;
         }
 
+        int answer = 0;
+        int c = 0;
+        int t = 0;
+        while (c < first.length() && t < second.length()) {
+            if (first.charAt(c) == second.charAt(t)) {
+                t++;
+            }
+            c++;
+        }
+
+        if (t == second.length()) {
+            answer = 1;
+        }
+        
+
         int left = 0;
         int right = n-1;
-        int answer = 0;
 
         while (left <= right) {
             int mid = (left + right) / 2;
