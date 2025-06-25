@@ -5,69 +5,48 @@ public class Main {
         String first = sc.next();
         String second = sc.next();
 
-        HashMap<Integer, Character> map = new HashMap<>();
-        ArrayList<Character> B = new ArrayList<>();
-
-        for (int i = 0; i<first.length(); i++) {
-            map.put(i+1, first.charAt(i));
-        }
-
-        for (int i = 0; i<second.length(); i++) {
-            B.add(second.charAt(i));
-        }
-
         int n = first.length();
         int[] del = new int[n];
         for (int i = 0; i < n; i++) {
-            del[i] = sc.nextInt();
+            del[i] = sc.nextInt()-1;
         }
 
-        TreeSet<Integer> set = new TreeSet<>();
+        int left = 0;
+        int right = n-1;
+        int answer = 0;
 
-        for (int i = 1; i<=n; i++) {
-            set.add(i);
-        }
+        while (left <= right) {
+            int mid = (left + right) / 2;
 
-        int count = 0;
-        for (int i = 0; i<n; i++) {
+            TreeSet<Integer> set = new TreeSet<>();
 
-            if (map.size() < B.size()) {
-                break;
+            for (int i = 0; i<=mid; i++) {
+                set.add(del[i]);
             }
 
-            int left = 0;
-            int right = set.last();
+            int current = 0;
+            int target = 0;
 
-            while (left <= right) {
-
-                int mid = (left + right) / 2;
-                int target = mid;
-                int current = 0;
-                while (target <= set.last() && current < B.size()) {
-                    
-                    if (map.containsKey(target)) {
-                        if (map.get(target) == B.get(current)) {
-                            current++;
-                        }
+            while (current < first.length() && target < second.length()) {
+                if (!set.contains(current)) {
+                    if (first.charAt(current) == second.charAt(target)) {
+                        target++;
                     }
-                    target++;
                 }
-
-
-                if (current == B.size()) {
-                    count++;
-                    break;
-                }
-                else {
-                    right = mid-1;
-                }
+                current++;
             }
 
-            map.remove(del[i]);
-            set.remove(del[i]);
+            if (target == second.length()) {
+                left = mid+1;
+                answer = Math.max(answer, mid+2);
+            }
+            else {
+                right = mid-1;
+            }
         }
 
-        System.out.print(count);
+        System.out.print(answer);
+        
 
     }
 }
