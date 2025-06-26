@@ -33,15 +33,15 @@ public class Main {
 
             Collections.sort(list);
             
-            int current = 0;
+            int current = list.size()-1;
             int count = k * l;
-            while (current < list.size()) {
+            while (current >= 0) {
                 int num = list.get(current);
 
                 if (mid - num <= k && mid - num <= count) {
                     count -= (mid-num);
                     result++;
-                    current++;
+                    current--;
                 }
                 else {
                     break;
