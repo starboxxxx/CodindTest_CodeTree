@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.*;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -18,19 +18,34 @@ public class Main {
         while (left <= right) {
             int mid = (left + right) / 2;
 
-            int[] count = new int[100001];
+            TreeSet<Integer> set = new TreeSet<>();
 
-            boolean can = false;
+            int result = 0;
             for (int i = 0; i<n; i++) {
-                count[arr[i]]++;
+                if (arr[i] < mid) {
+                    set.add(arr[i]);
+                }
+                else {
+                    result++;
+                }
+            }
 
-                if (count[arr[i]] >= mid) {
-                    can = true;
+            int count = k * l;
+
+            while (true) {
+                int num = set.last();
+
+                count -= (mid-num);
+
+                if (count >= 0) {
+                    result++;
+                }
+                else {
                     break;
                 }
             }
 
-            if (can) {
+            if (result >= mid) {
                 left = mid+1;
                 answer = Math.max(answer, mid);
             }
