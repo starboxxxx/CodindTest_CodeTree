@@ -11,13 +11,13 @@ public class Main {
             arr[i] = sc.nextInt();
         }
         
-        int left = 0;
-        int right = 100000;
+        long left = 0;
+        long right = 100000;
 
         int answer = Integer.MIN_VALUE;
 
         while (left <= right) {
-            int mid = (left + right) / 2;
+            long mid = (left + right) / 2;
 
             ArrayList<Integer> list = new ArrayList<>();
 
@@ -34,9 +34,9 @@ public class Main {
             Collections.sort(list);
             
             int current = list.size()-1;
-            int count = k * l;
+            long count = k * l;
             while (current >= 0) {
-                int num = list.get(current);
+                long num = (long) list.get(current);
 
                 if (mid - num <= k && mid - num <= count) {
                     count -= (mid-num);
@@ -50,7 +50,7 @@ public class Main {
 
             if (result >= mid) {
                 left = mid+1;
-                answer = Math.max(answer, mid);
+                answer = Math.max(answer, (int) mid);
             }
             else {
                 right = mid-1;
