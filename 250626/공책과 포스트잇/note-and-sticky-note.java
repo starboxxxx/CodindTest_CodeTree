@@ -1,4 +1,5 @@
 import java.util.*;
+
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -18,27 +19,29 @@ public class Main {
         while (left <= right) {
             int mid = (left + right) / 2;
 
-            TreeSet<Integer> set = new TreeSet<>();
+            ArrayList<Integer> list = new ArrayList<>();
 
             int result = 0;
             for (int i = 0; i<n; i++) {
                 if (arr[i] < mid) {
-                    set.add(arr[i]);
+                    list.add(arr[i]);
                 }
                 else {
                     result++;
                 }
             }
 
+            Collections.sort(list);
+            
+            int current = 0;
             int count = k * l;
+            while (current < list.size()) {
+                int num = list.get(current);
 
-            while (true) {
-                int num = set.last();
-
-                count -= (mid-num);
-
-                if (count >= 0) {
+                if (mid - num <= k && mid - num <= count) {
+                    count -= (mid-num);
                     result++;
+                    current++;
                 }
                 else {
                     break;
