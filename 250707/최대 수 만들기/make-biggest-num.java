@@ -12,10 +12,10 @@ class Number implements Comparable<Number> {
         int a = this.num;
         int b = n.num;
 
-        int x = Integer.parseInt(String.valueOf(a) + String.valueOf(b));
-        int y = Integer.parseInt(String.valueOf(b) + String.valueOf(a));
+        long x = Integer.parseInt(String.valueOf(a) + String.valueOf(b));
+        long y = Integer.parseInt(String.valueOf(b) + String.valueOf(a));
 
-        return x - y;
+        return Long.compare(x, y);
     } 
 }
 
