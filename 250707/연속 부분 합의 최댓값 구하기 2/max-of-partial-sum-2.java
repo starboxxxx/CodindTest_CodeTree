@@ -11,7 +11,7 @@ public class Main {
         int max = Integer.MIN_VALUE;
         int sum = 0;
         for (int i = 0; i<N; i++) {
-            if (sum + a[i] >= 0) {
+            if (sum + a[i] > 0) {
                 sum += a[i];
             }
             else {
