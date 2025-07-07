@@ -11,14 +11,12 @@ public class Main {
         int max = Integer.MIN_VALUE;
         int sum = 0;
         for (int i = 0; i<N; i++) {
-            if (sum + a[i] > 0) {
-                sum += a[i];
-            }
-            else {
-                sum = a[i];
-            }
+            sum += a[i];
 
             max = Math.max(max, sum);
+            if (sum < 0) {
+                sum = 0;
+            }
         }
 
         System.out.print(max);
