@@ -20,6 +20,10 @@ public class Main {
                     System.out.print(i + x);
                     break;
                 }
+
+                if (i == 0) {
+                    System.out.print(-1);
+                }
             }
         }
     }
