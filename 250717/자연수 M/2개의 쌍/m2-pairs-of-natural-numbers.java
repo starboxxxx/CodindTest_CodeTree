@@ -41,21 +41,21 @@ public class Main {
             if (start == end) {
                 p++;
                 q--;
+                total += start;
                 start = k.get(p).count;
                 end = k.get(q).count;
-                total += start;
             }
             else if (start > end) {
                 start -= end;
+                total += end;
                 q--;
                 end = k.get(q).count;
-                total += end;
             }
             else {
                 end -= start;
+                total += start;
                 p++;
                 start = k.get(p).count;
-                total += start;
             }
         }
 
