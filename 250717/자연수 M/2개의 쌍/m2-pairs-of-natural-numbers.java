@@ -35,7 +35,7 @@ public class Main {
         int max = Integer.MIN_VALUE;
         int total = 0;
 
-        while (total <= n/2) {
+        while (total < n/2) {
             max = Math.max(max, k.get(p).num + k.get(q).num);
 
             if (start == end) {
