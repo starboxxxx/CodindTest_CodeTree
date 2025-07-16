@@ -22,7 +22,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        int[] time = new int[1001];
+        int[] time = new int[1000];
         Bomb[] bombs = new Bomb[n];
         for (int i = 0; i < n; i++) {
             int score = sc.nextInt();
@@ -32,11 +32,13 @@ public class Main {
         }
 
         int total = 0;
+        int current = 0;
         Arrays.sort(bombs);
         for (int i = 0; i<n; i++) {
-            if (time[bombs[i].time-1] != 1) {
-                time[bombs[i].time-1] = 1;
+            if (bombs[i].time > current && time[current] != 1) {
+                time[current] = 1;
                 total += bombs[i].score;
+                current++;
             }
         }
 
