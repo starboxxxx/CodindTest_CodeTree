@@ -34,9 +34,9 @@ public class Main {
         int total = 0;
         int current = 0;
         Arrays.sort(bombs);
+
         for (int i = 0; i<n; i++) {
-            if (bombs[i].time > current && time[current] != 1) {
-                time[current] = 1;
+            if (bombs[i].time > current) {
                 total += bombs[i].score;
                 current++;
             }
