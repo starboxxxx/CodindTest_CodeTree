@@ -45,12 +45,14 @@ public class Main {
                 start = k.get(p).count;
                 end = k.get(q).count;
             }
+
             else if (start > end) {
                 start -= end;
                 total += end;
                 q--;
                 end = k.get(q).count;
             }
+
             else {
                 end -= start;
                 total += start;
