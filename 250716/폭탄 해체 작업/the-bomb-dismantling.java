@@ -22,7 +22,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        int[] time = new int[1000];
+        int[] time = new int[10000];
         Bomb[] bombs = new Bomb[n];
         for (int i = 0; i < n; i++) {
             int score = sc.nextInt();
