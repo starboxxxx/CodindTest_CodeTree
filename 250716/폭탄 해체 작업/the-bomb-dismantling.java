@@ -11,10 +11,10 @@ class Bomb implements Comparable<Bomb> {
 
     @Override
     public int compareTo(Bomb b) {
-        if (this.time != b.time) {
-            return this.time - b.time;
+        if (b.score != this.score) {
+            return b.score - this.score;
         }
-        return b.score - this.score;
+        return b.time - this.time;
     }
 }
 
@@ -30,15 +30,16 @@ public class Main {
 
             bombs[i] = new Bomb(score, timeLimit);
         }
-
-        int total = 0;
-        int current = 0;
         Arrays.sort(bombs);
 
+        int total = 0;
         for (int i = 0; i<n; i++) {
-            if (bombs[i].time > current) {
-                total += bombs[i].score;
-                current++;
+            for (int j = bombs[i].time-1; j>=0; j--) {
+                if (time[j] == 0) {
+                    time[j] = 1;
+                    total += bombs[i].score;
+                    break;
+                }
             }
         }
 
