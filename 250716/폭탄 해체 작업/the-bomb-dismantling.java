@@ -11,6 +11,9 @@ class Bomb implements Comparable<Bomb> {
 
     @Override
     public int compareTo(Bomb b) {
+        if (this.time != b.time) {
+            return this.time - b.time;
+        }
         return b.score - this.score;
     }
 }
@@ -31,8 +34,8 @@ public class Main {
         int total = 0;
         Arrays.sort(bombs);
         for (int i = 0; i<n; i++) {
-            if (time[bombs[i].time] != 1) {
-                time[bombs[i].time] = 1;
+            if (time[bombs[i].time-1] != 1) {
+                time[bombs[i].time-1] = 1;
                 total += bombs[i].score;
             }
         }
