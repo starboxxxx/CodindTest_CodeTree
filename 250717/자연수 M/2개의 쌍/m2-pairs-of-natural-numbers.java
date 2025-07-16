@@ -19,11 +19,12 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
+        int r = 0;
         ArrayList<Number> k = new ArrayList<>();
         for (int i = 0; i < n; i++) {
             int x = sc.nextInt();
             int y = sc.nextInt();
-
+            r += x;
             k.add(new Number(y, x));
         }
 
@@ -35,7 +36,7 @@ public class Main {
         int max = Integer.MIN_VALUE;
         int total = 0;
 
-        while (total < n/2) {
+        while (total < r/2) {
             max = Math.max(max, k.get(p).num + k.get(q).num);
 
             if (start == end) {
