@@ -28,6 +28,11 @@ public class Main {
             sum -= arr[i];
         }
 
-        System.out.print(min);
+        if (min == Integer.MAX_VALUE) {
+            System.out.print(-1);
+        }
+        else {
+            System.out.print(min);
+        }
     }
 }
