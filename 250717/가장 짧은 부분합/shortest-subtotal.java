@@ -15,12 +15,16 @@ public class Main {
         int sum = arr[0];
 
         for (int i = 0; i<n; i++) {
-            while (j+1 <n && sum + arr[j+1] < s) {
+            while (j+1 <n && sum < s) {
                 sum += arr[j+1];
                 j++;
             }
 
-            min = Math.min(min, j-i+2);
+            if (sum < s) {
+                break;
+            }
+
+            min = Math.min(min, j-i+1);
             sum -= arr[i];
         }
 
