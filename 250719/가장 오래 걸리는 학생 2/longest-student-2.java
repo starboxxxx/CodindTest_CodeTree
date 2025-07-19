@@ -42,7 +42,6 @@ public class Main {
             int x = sc.nextInt();
             int y = sc.nextInt();
             int v = sc.nextInt();
-            graph[x].add(new Node(y, v));
             graph[y].add(new Node(x, v));
         }
 
@@ -51,7 +50,7 @@ public class Main {
         int[] dist = new int[n+1];
 
         for (int i = 1; i<=n; i++) {
-            dist[i] = 100000;
+            dist[i] = (int)1e9;
         }
 
         dist[n] = 0;
