@@ -47,22 +47,13 @@ public class Main {
             }
         }
 
-        boolean canGo = true;
-
         for (int i = 2; i<=n; i++) {
             if (dist[i] == (int)1e9) {
-                canGo = false;
-                break;
+                System.out.println(-1);
             }
-        }
-
-        if (canGo) {
-            for (int i = 2; i<=n; i++) {
+            else {
                 System.out.println(dist[i]);
             }
-        }
-        else {
-            System.out.print(-1);
         }
     }
 }
