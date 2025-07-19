@@ -47,8 +47,22 @@ public class Main {
             }
         }
 
+        boolean canGo = true;
+
         for (int i = 2; i<=n; i++) {
-            System.out.println(dist[i]);
+            if (dist[i] == (int)1e9) {
+                canGo = false;
+                break;
+            }
+        }
+
+        if (canGo) {
+            for (int i = 2; i<=n; i++) {
+                System.out.println(dist[i]);
+            }
+        }
+        else {
+            System.out.print(-1);
         }
     }
 }
