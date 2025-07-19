@@ -51,7 +51,7 @@ public class Main {
         int[] dist = new int[n+1];
 
         for (int i = 1; i<=n; i++) {
-            dist[i] = 10000;
+            dist[i] = 100000;
         }
 
         dist[n] = 0;
