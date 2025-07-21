@@ -48,20 +48,23 @@ public class Main {
             graph[e].add(new Node(s, dist));
         }
 
-        int dist[] = new int[n+1];
-        PriorityQueue<Element> pq = new PriorityQueue<>();
-        int max = Integer.MIN_VALUE;
-
+        int[] result = new int[n+1];
         for (int i = 1; i<=n; i++) {
+            result[i] = (int)1e9;
+        }
 
+        int dist[] = new int[n+1];
+        int[] num = new int[]{a, b, c};
+        PriorityQueue<Element> pq = new PriorityQueue<>();
+        for (int i = 0; i<=2; i++) {
+            
+            int p = num[i];
             for (int j = 1; j<=n; j++) {
                 dist[j] = (int)1e9;
             }
-            dist[i] = 0;
+            dist[p] = 0;
 
-            pq.add(new Element(0, i));
-
-            int min = Integer.MAX_VALUE;
+            pq.add(new Element(0, p));
 
             while (!pq.isEmpty()) {
                 Element e = pq.poll();
@@ -82,15 +85,22 @@ public class Main {
                     if (dist[index] > newDist) {
                         dist[index] = newDist;
                         pq.add(new Element(newDist, index));
-
-                        if (index == a || index == b || index == c) {
-                            min = Math.min(min, newDist);
-                        }
                     }
                 }
             }
 
-            max = Math.max(max, min);
+            for (int j = 1; j<=n; j++) {
+                result[j] = Math.min(result[j], dist[j]);
+            }
+        }
+
+        int max = Integer.MIN_VALUE;
+
+        for (int i = 1; i<=n; i++) {
+            if (i == a || i == b || i == c) {
+                continue;
+            }
+            max = Math.max(max, result[i]);
         }
         
         System.out.print(max);
