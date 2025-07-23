@@ -75,7 +75,7 @@ public class Main {
             int minTime = e.time;
             int minIndex = e.index;
 
-            if (minTime != time[minIndex].get(A)) {
+            if (minTime > time[minIndex].getOrDefault(A, Integer.MAX_VALUE)) {
                 continue;
             }
 
