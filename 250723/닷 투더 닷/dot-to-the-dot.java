@@ -74,7 +74,7 @@ public class Main {
             int minTime = e.time;
             int minIndex = e.index;
 
-            if (minTime != time[minIndex]) {
+            if (minIndex == n || minTime != time[minIndex]) {
                 continue;
             }
 
@@ -83,15 +83,15 @@ public class Main {
                 int C = graph[minIndex].get(i).C;
                 int targetIndex = graph[minIndex].get(i).index;
 
-                int p = Math.min(A, C);
-                int q = B + L;
+                int newA = Math.min(A, C);
+                int newB = B + L;
 
-                int newTime = q + x / p;
+                int newTime = newB + x / newA;
 
                 if (time[targetIndex] > newTime) {
                     time[targetIndex] = newTime;
 
-                    pq.add(new Element(p, q, newTime, targetIndex));
+                    pq.add(new Element(newA, newB, newTime, targetIndex));
                 }
             }
         }
