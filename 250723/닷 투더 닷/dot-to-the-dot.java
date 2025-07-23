@@ -49,26 +49,23 @@ public class Main {
             int J = sc.nextInt();
             int L = sc.nextInt();
             int C = sc.nextInt();
-
-            if (I > J) {
-                graph[J].add(new Node(I, L, C));
-            }
-            else {
-                graph[I].add(new Node(J, L, C));
-            }
+            
+            graph[I].add(new Node(J, L, C));
+            graph[J].add(new Node(I, L, C));
         }
 
         PriorityQueue<Element> pq = new PriorityQueue<>();
 
-        int[] time = new int[n+1];
+
+        HashMap<Integer, Integer>[] time = new HashMap[n+1];
 
         for (int i = 1; i<=n; i++) {
-            time[i] = (int)1e9;
+            time[i] = new HashMap<>();
         }
 
-        time[1] = 0;
+        time[1].put(1000000, 0);
 
-        pq.add(new Element(Integer.MAX_VALUE, 0, 0, 1));
+        pq.add(new Element(1000000, 0, 0, 1));
 
         while (!pq.isEmpty()) {
             Element e = pq.poll();
@@ -78,7 +75,7 @@ public class Main {
             int minTime = e.time;
             int minIndex = e.index;
 
-            if (minTime != time[minIndex]) {
+            if (minTime != time[minIndex].get(A)) {
                 continue;
             }
 
@@ -92,16 +89,20 @@ public class Main {
 
                 int newTime = newB + x / newA;
 
-                if (time[targetIndex] > newTime) {
-                    time[targetIndex] = newTime;
+                if (time[targetIndex].getOrDefault(A, Integer.MAX_VALUE) > newTime) {
+                    time[targetIndex].put(newA, newTime);
 
-                    if (targetIndex != n) {
-                        pq.add(new Element(newA, newB, newTime, targetIndex));
-                    }
+                    pq.add(new Element(newA, newB, newTime, targetIndex));
                 }
             }
         }
 
-        System.out.print(time[n]);
+
+        int min = Integer.MAX_VALUE;
+
+        for (int t : time[n].values()) {
+            min = Math.min(min, t);
+        }
+        System.out.print(min);
     }
 }
