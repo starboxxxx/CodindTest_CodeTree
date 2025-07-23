@@ -1,73 +1,108 @@
 import java.util.*;
 
 class Node {
-    int index, L, C;
-    public Node(int index, int L, int C) {
+    int index;
+    int L;
+    int C;
+
+    public Node (int index, int L, int C) {
         this.index = index;
-        this.L = L;
         this.C = C;
+        this.L = L;
     }
 }
 
-class State implements Comparable<State> {
-    int index, dist, minC, time;
+class Element implements Comparable<Element> {
+    int A;
+    int B;
+    int time;
+    int index;
 
-    public State(int index, int dist, int minC) {
+    public Element (int A, int B, int time, int index) {
+        this.A = A;
+        this.B = B;
+        this.time = time;
         this.index = index;
-        this.dist = dist;
-        this.minC = minC;
-        this.time = dist + Main.x / minC;
     }
 
-    public int compareTo(State o) {
-        return this.time - o.time;
+    @Override
+    public int compareTo (Element e) {
+        return this.time - e.time;
     }
 }
 
 public class Main {
-    static int x;
-
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt(), m = sc.nextInt();
-        x = sc.nextInt();
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+        int x = sc.nextInt();
 
-        List<Node>[] graph = new ArrayList[n + 1];
-        for (int i = 1; i <= n; i++) graph[i] = new ArrayList<>();
+        ArrayList<Node>[] graph = new ArrayList[n+1];
 
-        for (int i = 0; i < m; i++) {
-            int a = sc.nextInt(), b = sc.nextInt(), l = sc.nextInt(), c = sc.nextInt();
-            graph[a].add(new Node(b, l, c));
-            graph[b].add(new Node(a, l, c));
+        for (int i = 1; i<=n; i++) {
+            graph[i] = new ArrayList<>();
         }
 
-        Map<Integer, Integer>[] time = new HashMap[n + 1];
-        for (int i = 1; i <= n; i++) time[i] = new HashMap<>();
+        for (int i = 0; i < m; i++) {
+            int I = sc.nextInt();
+            int J = sc.nextInt();
+            int L = sc.nextInt();
+            int C = sc.nextInt();
+            
+            graph[I].add(new Node(J, L, C));
+            graph[J].add(new Node(I, L, C));
+        }
 
-        PriorityQueue<State> pq = new PriorityQueue<>();
-        pq.add(new State(1, 0, 1_000_000));
-        time[1].put(1_000_000, 0);
+        PriorityQueue<Element> pq = new PriorityQueue<>();
+
+
+        HashMap<Integer, Integer>[] time = new HashMap[n+1];
+
+        for (int i = 1; i<=n; i++) {
+            time[i] = new HashMap<>();
+        }
+
+        time[1].put(1000000, 0);
+
+        pq.add(new Element(1000000, 0, 0, 1));
 
         while (!pq.isEmpty()) {
-            State cur = pq.poll();
-            int curTime = cur.time;
-            if (time[cur.index].getOrDefault(cur.minC, Integer.MAX_VALUE) < curTime) continue;
+            Element e = pq.poll();
 
-            for (Node next : graph[cur.index]) {
-                int newDist = cur.dist + next.L;
-                int newMinC = Math.min(cur.minC, next.C);
-                int newTime = newDist + x / newMinC;
+            int A = e.A;
+            int B = e.B;
+            int minTime = e.time;
+            int minIndex = e.index;
 
-                if (time[next.index].getOrDefault(newMinC, Integer.MAX_VALUE) > newTime) {
-                    time[next.index].put(newMinC, newTime);
-                    pq.add(new State(next.index, newDist, newMinC));
+            if (minTime > time[minIndex].getOrDefault(A, Integer.MAX_VALUE)) {
+                continue;
+            }
+
+            for (int i = 0; i<graph[minIndex].size(); i++) {
+                int L = graph[minIndex].get(i).L;
+                int C = graph[minIndex].get(i).C;
+                int targetIndex = graph[minIndex].get(i).index;
+
+                int newA = Math.min(A, C);
+                int newB = B + L;
+
+                int newTime = newB + x / newA;
+
+                if (time[targetIndex].getOrDefault(newA, Integer.MAX_VALUE) > newTime) {
+                    time[targetIndex].put(newA, newTime);
+
+                    pq.add(new Element(newA, newB, newTime, targetIndex));
                 }
             }
         }
 
-        int ans = Integer.MAX_VALUE;
-        for (int t : time[n].values()) ans = Math.min(ans, t);
 
-        System.out.println(ans == Integer.MAX_VALUE ? -1 : ans);
+        int min = Integer.MAX_VALUE;
+
+        for (int t : time[n].values()) {
+            min = Math.min(min, t);
+        }
+        System.out.print(min);
     }
 }
