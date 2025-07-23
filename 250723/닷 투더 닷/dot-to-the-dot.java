@@ -74,7 +74,7 @@ public class Main {
             int minTime = e.time;
             int minIndex = e.index;
 
-            if (minIndex == n || minTime != time[minIndex]) {
+            if (minTime != time[minIndex]) {
                 continue;
             }
 
@@ -91,7 +91,9 @@ public class Main {
                 if (time[targetIndex] > newTime) {
                     time[targetIndex] = newTime;
 
-                    pq.add(new Element(newA, newB, newTime, targetIndex));
+                    if (targetIndex != n) {
+                        pq.add(new Element(newA, newB, newTime, targetIndex));
+                    }
                 }
             }
         }
