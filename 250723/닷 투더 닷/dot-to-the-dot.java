@@ -50,8 +50,12 @@ public class Main {
             int L = sc.nextInt();
             int C = sc.nextInt();
 
-            graph[I].add(new Node(J, L, C));
-            graph[J].add(new Node(I, L, C));
+            if (I > J) {
+                graph[J].add(new Node(I, L, C));
+            }
+            else {
+                graph[I].add(new Node(J, L, C));
+            }
         }
 
         PriorityQueue<Element> pq = new PriorityQueue<>();
