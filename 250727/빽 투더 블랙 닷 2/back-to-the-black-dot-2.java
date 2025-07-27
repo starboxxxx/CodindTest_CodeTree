@@ -34,7 +34,7 @@ public class Main {
         int red2 = sc.nextInt();
         ArrayList<Node>[] graph = new ArrayList[n+1];
 
-        for (int i = 0; i<m; i++) {
+        for (int i = 1; i<=n; i++) {
             graph[i] = new ArrayList<>();
         }
 
