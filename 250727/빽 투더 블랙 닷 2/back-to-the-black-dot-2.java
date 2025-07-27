@@ -114,7 +114,7 @@ public class Main {
 
         int k = dist1[red2];
 
-        int min = Integer.MAX_VALUE;
+        int min = 2000;
 
         for (int i = 1; i<=n; i++) {
             if (i == red1 || i == red2) {
@@ -124,7 +124,13 @@ public class Main {
             min = Math.min(min, dist1[i] + dist2[i]);
         }
 
-        System.out.print(min + k);
+        if (min == 2000) {
+            System.out.print(-1);
+        }
+
+        else {
+            System.out.print(min + k);
+        }
         
     }
 }
