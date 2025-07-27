@@ -2,26 +2,26 @@ import java.util.*;
 
 class Node {
     int index;
-    int dist;
+    long dist;
 
-    public Node (int index, int dist) {
+    public Node (int index, long dist) {
         this.index = index;
         this.dist = dist;
     }
 }
 
 class Element implements Comparable<Element> {
-    int dist;
+    long dist;
     int index;
 
-    public Element (int dist, int index) {
+    public Element (long dist, int index) {
         this.dist = dist;
         this.index = index;
     }
 
     @Override
     public int compareTo (Element e) {
-        return this.dist - e.dist;
+        return Long.compare(this.dist, e.dist);
     }
 }
 
@@ -41,7 +41,7 @@ public class Main {
         for (int i = 0; i < m; i++) {
             int u = sc.nextInt();
             int v = sc.nextInt();
-            int w = sc.nextInt();
+            long w = sc.nextLong();
 
             graph[u].add(new Node(v, w));
             graph[v].add(new Node(u, w));
@@ -49,12 +49,12 @@ public class Main {
 
         PriorityQueue<Element> pq = new PriorityQueue<>();
 
-        int[] dist1 = new int[n+1];
-        int[] dist2 = new int[n+2];
+        long[] dist1 = new long[n+1];
+        long[] dist2 = new long[n+1];
 
         for (int i = 1; i<=n; i++) {
-            dist1[i] = (int)1e9;
-            dist2[i] = (int)1e9;
+            dist1[i] = (long)1e17;
+            dist2[i] = (long)1e17;
         }
 
         dist1[red1] = 0;
@@ -66,7 +66,7 @@ public class Main {
             Element e = pq.poll();
 
             int minIndex = e.index;
-            int minDist = e.dist;
+            long minDist = e.dist;
 
             if (minDist != dist1[minIndex]) {
                 continue;
@@ -74,10 +74,10 @@ public class Main {
 
             for (int i = 0; i<graph[minIndex].size(); i++) {
 
-                int targetDist = graph[minIndex].get(i).dist;
+                long targetDist = graph[minIndex].get(i).dist;
                 int targetIndex = graph[minIndex].get(i).index;
 
-                int newDist = targetDist + dist1[minIndex];
+                long newDist = targetDist + dist1[minIndex];
                 if (dist1[targetIndex] > newDist) {
                     dist1[targetIndex] = newDist;
 
@@ -92,7 +92,7 @@ public class Main {
             Element e = pq.poll();
 
             int minIndex = e.index;
-            int minDist = e.dist;
+            long minDist = e.dist;
 
             if (minDist != dist2[minIndex]) {
                 continue;
@@ -100,10 +100,10 @@ public class Main {
 
             for (int i = 0; i<graph[minIndex].size(); i++) {
 
-                int targetDist = graph[minIndex].get(i).dist;
+                long targetDist = graph[minIndex].get(i).dist;
                 int targetIndex = graph[minIndex].get(i).index;
 
-                int newDist = targetDist + dist2[minIndex];
+                long newDist = targetDist + dist2[minIndex];
                 if (dist2[targetIndex] > newDist) {
                     dist2[targetIndex] = newDist;
 
@@ -112,7 +112,7 @@ public class Main {
             }
         }
 
-        int min = (int)1e9;
+        long min = (long)1e17;
 
         for (int i = 1; i<=n; i++) {
             if (i == red1 || i == red2) {
@@ -122,7 +122,7 @@ public class Main {
             min = Math.min(min, dist1[i] + dist2[i] + dist1[red2]);
         }
 
-        if (min == (int)1e9) {
+        if (min == (long)1e17) {
             System.out.print(-1);
         }
 
