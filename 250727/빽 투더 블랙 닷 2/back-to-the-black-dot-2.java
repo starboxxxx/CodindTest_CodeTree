@@ -112,24 +112,22 @@ public class Main {
             }
         }
 
-        int k = dist1[red2];
-
-        int min = 2000;
+        int min = (int)1e9;
 
         for (int i = 1; i<=n; i++) {
             if (i == red1 || i == red2) {
                 continue;
             }
 
-            min = Math.min(min, dist1[i] + dist2[i]);
+            min = Math.min(min, dist1[i] + dist2[i] + dist1[red2]);
         }
 
-        if (min == 2000) {
+        if (min == (int)1e9) {
             System.out.print(-1);
         }
 
         else {
-            System.out.print(min + k);
+            System.out.print(min);
         }
         
     }
