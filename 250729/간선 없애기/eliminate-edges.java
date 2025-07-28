@@ -99,9 +99,8 @@ public class Main {
         }
 
         int count = 0;
-        
 
-        for (int k = list.size()-2; k>=1; k--) {
+        for (int k = 1; k<=list.size()-2; k++) {
 
             for (int i = 1; i<=n; i++) {
                 dist[i] = (long)1e17;
