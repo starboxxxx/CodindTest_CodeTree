@@ -100,7 +100,10 @@ public class Main {
 
         int count = 0;
 
-        for (int k = 1; k<=list.size()-2; k++) {
+        for (int a = 1; a<list.size(); a++) {
+
+            int current = list.get(a);
+            int before = list.get(a-1);
 
             for (int i = 1; i<=n; i++) {
                 dist[i] = (long)1e17;
@@ -116,7 +119,7 @@ public class Main {
                 int minIndex = e.index;
                 long minDist = e.dist;
 
-                if ((dist[minIndex] != minDist) || (minIndex == k)) {
+                if (dist[minIndex] != minDist) {
                     continue;
                 } 
 
@@ -124,7 +127,8 @@ public class Main {
                     int targetIndex = graph[minIndex].get(i).index;
                     long targetDist = graph[minIndex].get(i).dist;
 
-                    if (targetIndex == k) {
+                    if ((minIndex == before && targetIndex == current)
+                    || (minIndex == current && targetIndex == before)) {
                         continue;
                     }
 
