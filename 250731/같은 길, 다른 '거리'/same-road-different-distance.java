@@ -64,9 +64,9 @@ public class Main {
         ArrayList<Integer> listB = da(graphB);
 
         int countA = 0;
-        for (int p = listA.size()-2; p>=0; p--) {
-            int next = listA.get(p);
-            int current = listA.get(p+1);
+        for (int p = listA.size()-1; p>=1; p--) {
+            int current = listA.get(p);
+            int next = listA.get(p-1);
 
             long original = 0;
 
@@ -88,9 +88,9 @@ public class Main {
         }
 
         int countB = 0;
-        for (int p = listB.size()-2; p>=0; p--) {
-            int next = listB.get(p);
-            int current = listB.get(p+1);
+        for (int p = listB.size()-1; p>=1; p--) {
+            int current = listB.get(p);
+            int next = listB.get(p-1);
 
             long original = 0;
 
