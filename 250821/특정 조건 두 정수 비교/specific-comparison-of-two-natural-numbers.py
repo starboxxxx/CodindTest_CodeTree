@@ -3,7 +3,13 @@ num1, num2 = map(int, input().split())
 
 
 if num1 < num2:
-    print("1 0")
+    print(1, end=" ")
+else:
+    print(0, end=" ")
 
-elif num1 == num2:
-    print("0 1")
+if num1 == num2:
+    print(1, end=" ")
+else:
+    print(0, end=" ")
+
+
