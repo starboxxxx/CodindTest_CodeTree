@@ -1,3 +1,5 @@
 
-print("Your score is " + input() + " point.")
 
+n = int(input())
+
+print("Your score is", n , "point.")
