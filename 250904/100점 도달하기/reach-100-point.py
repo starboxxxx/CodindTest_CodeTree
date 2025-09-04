@@ -16,4 +16,4 @@ if num + i <= 100:
         elif i < 60:
             print("F", end = " ")
         else:
-            print("", end = "")
+            print("", end = " ")
